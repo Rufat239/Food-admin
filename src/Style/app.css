@@ -1,4 +1,6 @@
 body {
   margin: 0;
   background-color: #1e1e30;
+  position: relative;
+  z-index: 0;
 }
