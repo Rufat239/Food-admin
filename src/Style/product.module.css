@@ -1,0 +1,109 @@
+.all {
+  width: 78%;
+  position: absolute;
+  top: 90px;
+  left: 20%;
+}
+.filterLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 33px;
+  border-radius: 14px;
+  background: #27283c;
+}
+.filterLine p {
+  color: #c7c7c7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.2px;
+}
+
+.filterLine .filterActions {
+  display: flex;
+  gap: 10px;
+}
+.filterLine .filterActions select {
+  padding: 8px 18px;
+  border-radius: 14px;
+  background: #5a5b70;
+  color: rgba(242, 242, 242, 0.87);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+  letter-spacing: 0.1px;
+}
+.filterLine .filterActions button {
+  border-radius: 14px;
+  border: 2px solid #c035a2;
+  background: #c035a2;
+  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px; /* 210% */
+  letter-spacing: 0.25px;
+}
+
+.products {
+  margin-top: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.productCard {
+  width: 15%;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(57, 57, 57, 0.25);
+  padding: 15px 16px;
+}
+.productCard img {
+  margin: auto;
+}
+.productCard h2 {
+  color: #1e1e30;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: 0.18px;
+}
+.productCard p {
+  color: #8e8e93;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.14px;
+}
+.productCard .productActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.productActions p {
+  color: #00b2a9;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 200% */
+  letter-spacing: 0.12px;
+}
+.productActions svg {
+  cursor: pointer;
+}
