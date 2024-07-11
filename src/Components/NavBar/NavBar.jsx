@@ -75,7 +75,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/orderHistoryPage">
               <img src={imageHistory_offer} alt="" />
               History
             </Link>

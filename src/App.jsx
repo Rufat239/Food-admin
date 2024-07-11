@@ -6,6 +6,7 @@ import "./Style/app.css";
 import RestaurantsPage from "./Pages/RestaurantsPage";
 import OfferPage from "./Pages/OfferPage";
 import CategoryPage from "./Pages/CategoryPage";
+import OrderHistoryPage from "./Pages/OrderHistoryPage";
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
             <Route path="/restaurantsPage" element={<RestaurantsPage />} />
             <Route path="/offerPage" element={<OfferPage />} />
             <Route path="/categoryPage" element={<CategoryPage />} />
+            <Route path="/orderHistoryPage" element={<OrderHistoryPage />} />
           </Routes>
         </BrowserRouter>
       </div>
