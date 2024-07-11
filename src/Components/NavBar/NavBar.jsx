@@ -41,14 +41,14 @@ function NavBar() {
       <div className="nav">
         <ul className="listNav">
           <li>
-            <Link className="navLink" to="/dashboardPage">
+            <Link className="navLink" to="/">
               <img src={imageDashboard} alt="" />
               Dashboard
             </Link>
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/productPage">
               <img src={imageProducts} alt="" />
               Products
             </Link>
