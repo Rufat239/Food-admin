@@ -61,7 +61,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/categoryPage">
               <img src={imageCategory} alt="" />
               Category
             </Link>
@@ -82,7 +82,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/offerPage">
               <img src={imageHistory_offer} alt="" />
               Offer
             </Link>
