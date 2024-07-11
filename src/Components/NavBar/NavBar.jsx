@@ -54,7 +54,7 @@ function NavBar() {
             </Link>
           </li>
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/restaurantsPage">
               <img src={imageRestaurants} alt="" />
               Restaurants
             </Link>
