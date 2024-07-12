@@ -9,6 +9,7 @@ import CategoryPage from "./Pages/CategoryPage";
 import OrderHistoryPage from "./Pages/OrderHistoryPage";
 import ProductPage from "./Pages/ProductPage";
 import Login from "./Pages/Login";
+import OrdersPage from "./Pages/OrdersPage";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
             <Route path="/categoryPage" element={<CategoryPage />} />
             <Route path="/orderHistoryPage" element={<OrderHistoryPage />} />
             <Route path="/productPage" element={<ProductPage />} />
+            <Route path="/ordersPage" element={<OrdersPage />} />
           </Routes>
         </BrowserRouter>
       </div>

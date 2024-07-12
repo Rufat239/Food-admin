@@ -68,7 +68,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/ordersPage">
               <img src={imageOrders} alt="" />
               Orders
             </Link>
