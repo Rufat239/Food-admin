@@ -1,9 +1,13 @@
 import React from "react";
 import Products from "../Components/Products/Products";
+import NavBar from "../Components/NavBar/NavBar";
 function ProductPage() {
-  <div>
-    <Products />
-  </div>;
+  return (
+    <div>
+      <NavBar />
+      <Products />
+    </div>
+  );
 }
 
 export default ProductPage;
