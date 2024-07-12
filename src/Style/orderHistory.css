@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container {
+    width: 78%;
+    position: absolute;
+    left: 310px;
+    top: 190px;
+    border-radius: 3px;
+    
+  }
+
+  .tableContainer{
+    background-color: #ffffff;
+  }
+  
+  .container th {
+    border-bottom: 1px solid #DFE2E9;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #00072B;
+    font-size: 14px;
+    text-align: center;
+   
+  }
+
+
+  .container td {
+    border-bottom: 1px solid #DFE2E9;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: #00072B;
+    font-size: 14px;
+    text-align: center;
+   
+  }
+  
+  .container table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .container thead th {
+    height: 65px;
+    background-color: #FFFFFF;
+  }
+  
+
+  .container tbody tr{
+    height: 61px;
+  }
+
+  .idContainer,
+  .customerID {
+    width: 57px;
+    height: 24px;
+    color: #454D59;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #DFE2E9;
+    border-radius: 5px;
+    margin-left: 65px;
+    
+  }
