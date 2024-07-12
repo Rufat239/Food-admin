@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import Editsvg from '../../assets/SVG/edit.svg'
+import Deletesvg from '../../assets/SVG/delete.svg'
 import Style from '../../Style/cardrestaurants.css';
 
 function CardRestaurants() {
@@ -31,8 +32,8 @@ function CardRestaurants() {
                             <p>{card.type}</p>
                         </div>
                         <div className='cards-edit'>
-                            {/* <img src={Editsvg} alt="Edit" />
-                            <img src={Deletesvg} alt="Delete" onClick={() => handleDelete(card.id)} /> */}
+                            <img src={Editsvg} alt="Edit" />
+                            <img src={Deletesvg} alt="Delete" onClick={() => handleDelete(card.id)} />
                         </div>
                     </div>
                 ))}
