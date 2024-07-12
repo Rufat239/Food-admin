@@ -41,7 +41,7 @@ function NavBar() {
       <div className="nav">
         <ul className="listNav">
           <li>
-            <Link className="navLink" to="/">
+            <Link className="navLink" to="/dashboardPage">
               <img src={imageDashboard} alt="" />
               Dashboard
             </Link>
