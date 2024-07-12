@@ -1,4 +1,4 @@
-.navbar {
+/* .cat-nav {
     position: absolute;
     width: 78%;
     height: 73px;
@@ -10,10 +10,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
+  } */
 
-  .category {
-    /* position: absolute; */
+  /* .category {
+
     width: 168px;
     height: 35px;
     margin-right: 21px;
@@ -29,9 +29,9 @@
   .category:hover {
     background: rgb(150, 40, 130);
     cursor: pointer;
-  }
+  } */
 
-  .heading {
+  /* .heading {
     width: 122px;
     height: 32px;
     left: 33px;
@@ -50,5 +50,5 @@
     line-height: 1.313rem;
     letter-spacing: 0.1px;
     text-align: left;
-  }
+  } */
   
