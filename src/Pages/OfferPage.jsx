@@ -1,8 +1,13 @@
 import React from 'react'
+import SubNavOffer from '../Components/Offer/SubNavOffer'
+import OfferCards from '../Components/Offer/OfferCards'
 
 function OfferPage() {
   return (
-    <div>OfferPage</div>
+    <div>
+        <SubNavOffer />
+        <OfferCards />
+    </div>
   )
 }
 
