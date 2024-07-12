@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+.offerContainer1 {
+  position: absolute;
+  left: 23.5em;
+  width: 77%;
+  top: 10.62em;
+}
+
+.offerList {
+  background-color: white;
+  margin-top: 2.5em;
+}
+
+.offerList table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  /* padding: 18px 35 px; */
+}
+
+.offerList thead {
+  background-color: #ffffff;
+  /* height: 4.06em; */
+}
+
+/* .offerList thead tr{
+    height: 4.06em;
+  } */
+
+.offerList thead th {
+  font-family: "Open Sans", sans-serif;
+  /* padding: 8px; */
+  height: 3.9em;
+  border-bottom: 2px solid #c9cfda;
+  vertical-align: bottom;
+  padding-bottom: 0.7em;
+}
+
+.idContainer {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 3.5em;
+  height: 1.5em;
+  border: 1px solid #dfe2e9;
+  border-radius: 10px;
+  justify-content: center;
+  margin-left: 31px;
+}
+
+.id {
+  font-size: 0.8rem;
+}
+
+.offerList tbody tr {
+  border-bottom: 1px solid #dfe2e9;
+  height: 3em;
+}
+
+.offerList tbody tr:last-child {
+  border-bottom: none;
+}
+
+.offerList th,
+.offerList td {
+  text-align: center;
+  /* padding: 8px; */
+}
+
+.offerList img {
+  width: 3em;
+  height: 3em;
+}
+
+.question,
+.feedback {
+  font-family: "Open Sans", sans-serif;
+}
+
+.idColumn {
+  width: 10%;
+}
+
+.imageColumn {
+  width: 15%;
+}
+
+.titleColumn {
+  width: 25%;
+}
+
+.descriptionColumn {
+  width: 35%;
+}
+
+.actionsColumn {
+  width: 8%;
+}
+
+/* Action buttons- Edit, Delete */
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 7vh;
+  /* text-align: center; */
+  gap: 0.5em;
+}
+
+.edit,
+.delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.edit img,
+.delete img {
+  width: 100%;
+  height: 100%;
+}
