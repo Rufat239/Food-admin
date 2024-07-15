@@ -1,4 +1,5 @@
 import React from "react";
+import "../../Style/reusableTable.module.css";
 
 const ReusableTable = ({ columns, data, className }) => {
   return (
