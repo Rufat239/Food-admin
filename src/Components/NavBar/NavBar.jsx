@@ -21,8 +21,38 @@ function NavBar() {
 
   const [hamburgerMenuStyle, setHamburgerMenuStyle] = useState({});
 
+  const objectWithSchema = {
+    data: {
+      image: "",
+      name: "",
+      description: "",
+      price: "",
+      restaurants: "",
+    },
+    schema: {
+      image: { type: "text", label: "Image" },
+      name: { type: "text", label: "Name" },
+      description: { type: "textarea", label: "Description" },
+      price: { type: "number", label: "Price" },
+      restaurants: {
+        type: "select",
+        label: "Restaurants",
+        options: [
+          { value: "fastFood", content: "Papa John's" },
+          { value: "italian", content: "Italian" },
+        ],
+      },
+    },
+  };
+
+  const openSideBar = () => {
+    setShowSideBar(true);
+    document.body.style.overflow = "hidden";
+  };
+
   const closeSideBar = () => {
     setShowSideBar(false);
+    document.body.style.overflow = "auto";
   };
 
   const openHamburgerMenu = () => {
@@ -56,12 +86,17 @@ function NavBar() {
         </div>
 
         <div className="navBtns">
-          <button
-            className="addProductBtn"
-            onClick={() => setShowSideBar(true)}
-          >
+          <button className="addProductBtn" onClick={openSideBar}>
             + <span className="addBtnTxt">ADD PRODUCT</span>
           </button>
+          <SideBar Show={showSideBar} onClose={closeSideBar}>
+            <Form
+              objectWithSchema={objectWithSchema}
+              title="Add Product"
+              subtitle="Add your Product description and necessary information"
+              onClose={closeSideBar}
+            />
+          </SideBar>
           <button className="btnLang">LANG</button>
           <div className="imgAdmin">
             <img src={imageAdmin} />
@@ -133,19 +168,6 @@ function NavBar() {
             </Link>
           </li>
         </ul>
-
-        <SideBar Show={showSideBar} onClose={closeSideBar}>
-          <Form
-            object={{ Image: "", Name: "", Description: "", Price: "" }}
-            dropdown={[
-              { value: "fastFood", content: "Papa John's" },
-              { value: "italian", content: "Italian" },
-            ]}
-            title="Add Product"
-            subtitle="Add your Product description and necessary information"
-            onClose={closeSideBar}
-          />
-        </SideBar>
       </div>
     </>
   );
