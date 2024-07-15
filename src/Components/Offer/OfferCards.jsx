@@ -1,11 +1,10 @@
-import React from 'react'
-import "../../Style/offerCards.css"
-// import Edit from "../../assets/offerImages/Edit.png"
-// import Delete from "../../assets/offerImages/Delete.png"
-// import pizza from "../../assets/offerImages/pizza.png"
-
+import React from "react";
+import "../../Style/offerCards.css";
+import Table from "../Reusable/Table.jsx";
+// import Edit from '../../assets/offerImages/Edit.png';
+// import Delete from '../../assets/offerImages/Delete.png';
+// import pizza from '../../assets/offerImages/pizza.png';
 function OfferCards() {
-
   const offers = [
     {
       id: 9177,
@@ -26,60 +25,55 @@ function OfferCards() {
       description: "Yummy this pizza but...",
     },
   ];
-
-  function handleDelete(id){
+  function handleDelete(id) {
     console.log(id);
   }
-
+  const columns = [
+    {
+      key: "id",
+      title: "ID",
+      render: (text) => (
+        <div className="idContainer">
+          <p className="id">{text}</p>
+        </div>
+      ),
+    },
+    {
+      key: "image",
+      title: "Image",
+      render: (text) => <img src={text} alt="" />,
+    },
+    {
+      key: "title",
+      title: "Title",
+      render: (text) => <div className="question">{text}</div>,
+    },
+    {
+      key: "description",
+      title: "Description",
+      render: (text) => <div className="feedback">{text}</div>,
+    },
+    {
+      key: "actions",
+      title: "",
+      render: (text, record) => (
+        <div className="actions">
+          <button className="edit">
+            <img src="" alt="Edit" />
+          </button>
+          <button className="delete" onClick={() => handleDelete(record.id)}>
+            <img src="" alt="Delete" />
+          </button>
+        </div>
+      ),
+    },
+  ];
   return (
-    <div className='offerContainer1'>
-
-         <div className="offerList">
-        <table>
-          <thead>
-            <tr>
-              <th className="idColumn">ID</th>
-              <th className="imageColumn">Image</th>
-              <th className="titleColumn">Title</th>
-              <th className="descriptionColumn">Description</th>
-              <th className="actionsColumn"></th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {offers.map((offer)=> (
-              <tr key={offer.id}>
-              <td>
-                <div className="idContainer">
-                  <p className="id">{offer.id}</p>
-                </div>
-              </td>
-              <td>
-                <img src={offer.image} />
-              </td>
-              <td className="question">
-               {offer.title}
-              </td>
-              <td className="feedback">{offer.description}</td>
-              <td className="actions">
-                <button className="edit">
-                  <img src="" />
-                </button>
-
-                <button className="delete" onClick={()=>handleDelete(offer.id)}>
-                  <img src="" />
-                </button>
-              </td>
-            </tr>
-            ))}
-            
-
-          
-          </tbody>
-        </table>
+    <div className="offerContainer1">
+      <div className="offerList">
+        <Table columns={columns} data={offers} className="offerTable" />
       </div>
     </div>
-  )
+  );
 }
-
-export default OfferCards
+export default OfferCards;
