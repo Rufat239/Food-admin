@@ -1,8 +1,8 @@
 import React from "react";
 import "../../Style/offerCards.css";
 import Table from "../Reusable/Table.jsx";
-// import Edit from '../../assets/offerImages/Edit.png';
-// import Delete from '../../assets/offerImages/Delete.png';
+import Delete from "../../assets/SVG/delete.svg"
+import Edit from "../../assets/SVG/edit.svg"
 // import pizza from '../../assets/offerImages/pizza.png';
 function OfferCards() {
   const offers = [
@@ -59,10 +59,10 @@ function OfferCards() {
       render: (text, record) => (
         <div className="actions">
           <button className="edit">
-            <img src="" alt="Edit" />
+            <img src={Edit} alt="Edit" />
           </button>
           <button className="delete" onClick={() => handleDelete(record.id)}>
-            <img src="" alt="Delete" />
+            <img src={Delete} alt="Delete" />
           </button>
         </div>
       ),
