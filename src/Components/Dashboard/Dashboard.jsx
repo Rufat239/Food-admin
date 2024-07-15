@@ -19,12 +19,14 @@ function Dashboard() {
             <img src={diagram} alt="" />
           </div>
           <div className="orders2">
-            <img src={ellipse1} alt="" />
-            <span>KFC</span>
-            <img src={ellipse} alt="" />
-            <span>KLM</span>
+            <div className="orders2Res">
+              <img src={ellipse1} alt="" />
+              <span>KFC</span>
+              <img src={ellipse} alt="" />
+              <span>KLM</span>
+            </div>
             <img src={ellipse2} alt="" />
-            <span>American Express</span>
+            <span className="ordersTxtAE">American Express</span>
           </div>
         </div>
         <div className="dashTotalSalary">

@@ -1,0 +1,18 @@
+.sideBarOwerlay {
+  width: 60rem;
+  height: 100vh;
+  background-color: #38394e;
+  position: absolute;
+  /* left: 60%; */
+  top: 0;
+  right: 0;
+  z-index: 9;
+}
+
+.sideBarClose {
+  /* width: 25px;
+  height: 25px; */
+  border-radius: 50%;
+  background-color: #c74feb;
+  color: white;
+}
