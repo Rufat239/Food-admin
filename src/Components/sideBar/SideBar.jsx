@@ -1,4 +1,5 @@
 import React from "react";
+import "../../Style/sideBar.css";
 
 function SideBar({ Show, onClose, children }) {
   if (!Show) {
@@ -7,7 +8,7 @@ function SideBar({ Show, onClose, children }) {
   return (
     <div className="sideBarOwerlay">
       <button className="sideBarClose" onClick={onClose}>
-        Close
+        x
       </button>
       <div className="modalContent">{children}</div>
     </div>

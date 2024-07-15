@@ -1,9 +1,9 @@
 .dashboard {
   width: 80%;
-  height: 130vh;
+  height: 59em;
   /* border: 1px solid white; */
   position: absolute;
-  left: 300px;
+  left: 20%;
   top: 94px;
 }
 
@@ -15,22 +15,23 @@
 
 .dash1 {
   width: 100%;
-  height: 40%;
+  height: 58%;
   /* border: 2px solid white; */
   display: flex;
 }
 
 .dash2 {
   width: 100%;
+  height: 58%;
   display: flex;
-  margin-top: 200px;
+  margin-top: 2%;
   /* height: 500px; */
   /* border: 2px solid white; */
 }
 
 .dashOrders {
   width: 40%;
-  height: 75vh;
+  height: 100%;
   /* border: 1px solid white; */
   background-color: #27283c;
   border-radius: 15px;
@@ -56,9 +57,9 @@
 
 .dashTotalSalary {
   width: 57%;
-  height: 75vh;
+  height: 100%;
   /* border: 1px solid white; */
-  margin-left: 30px;
+  margin-left: 2%;
   background-color: #27283c;
   border-radius: 15px;
 }
@@ -90,7 +91,7 @@
 
 .dashAssignedRisks {
   width: 57%;
-  height: 57vh;
+  height: 90%;
   /* border: 1px solid white; */
   background-color: #27283c;
   border-radius: 15px;
@@ -98,9 +99,9 @@
 
 .dashAssignedActionItems {
   width: 40%;
-  height: 57vh;
+  height: 90%;
   /* border: 1px solid white; */
-  margin-left: 30px;
+  margin-left: 2%;
   border-radius: 15px;
   background-color: #27283c;
 }
@@ -115,4 +116,109 @@
   color: #8e8e93;
   text-align: center;
   margin-top: 220px;
+}
+
+@media only screen and (max-width: 431px) {
+  .dashboard {
+    width: 100%;
+    height: 150vh;
+    left: 0;
+  }
+  .dash1 {
+    height: 80%;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dashOrders {
+    width: 90%;
+    height: 35%;
+  }
+
+  .dashboard h2 {
+    margin-bottom: 2%;
+  }
+
+  .diagramİmg {
+    margin-top: 0;
+  }
+
+  .diagramİmg img {
+    width: 55%;
+  }
+
+  .orders2 {
+    display: block;
+    margin-left: 27%;
+  }
+
+  .orders2 img {
+    height: 20px;
+  }
+
+  .orders2Res {
+    display: flex;
+    margin-bottom: 5%;
+  }
+
+  .orders2 span {
+    margin-right: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .ordersTxtAE {
+    font-size: 20px;
+  }
+  .dashTotalSalary {
+    width: 90%;
+    height: 54%;
+    margin: 0;
+  }
+
+  .diagramsImages img {
+    width: 90%;
+    height: 40vh;
+  }
+
+  .diagramsMonth {
+    margin-left: 25px;
+    display: flex;
+    margin-top: 40px;
+  }
+
+  .diagramsMonth span {
+    margin-left: 8px;
+    margin-right: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .dash2 {
+    width: 100%;
+    height: 70%;
+    display: block;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dashAssignedRisks {
+    width: 90%;
+    height: 45%;
+  }
+
+  .dashAssignedRisks p {
+    margin-top: 150px;
+  }
+
+  .dashAssignedActionItems {
+    width: 90%;
+    height: 45%;
+    margin: 0;
+  }
+
+  .dashAssignedActionItems p {
+    margin-top: 150px;
+  }
 }
