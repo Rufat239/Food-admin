@@ -4,23 +4,24 @@ import Table from "../Reusable/Table.jsx";
 import Delete from "../../assets/SVG/delete.svg"
 import Edit from "../../assets/SVG/edit.svg"
 // import pizza from '../../assets/offerImages/pizza.png';
+import pizza from "../../NavbarImages/Background.png"
 function OfferCards() {
   const offers = [
     {
       id: 9177,
-      image: "",
+      image: pizza,
       title: "Do you like Pizza at Papa John's?",
       description: "Yummy this pizza but...",
     },
     {
       id: 9178,
-      image: "",
+      image: pizza,
       title: "Do you like Pizza at Papa John's?",
       description: "Yummy this pizza but...",
     },
     {
       id: 9179,
-      image: "",
+      image: pizza,
       title: "Do you like Pizza at Papa John's?",
       description: "Yummy this pizza but...",
     },
