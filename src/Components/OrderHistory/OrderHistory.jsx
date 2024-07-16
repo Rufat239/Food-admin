@@ -34,7 +34,7 @@ function OrderHistory() {
       id: "9177",
       customerId: "022401",
       time: "25 Dec 2021",
-      deliveryAddress: "29 Eve street",
+      deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876 ",
       amount: "$249.7",
       paymentMethod: "Cash on Delivery",
       contact: "994-51-410-3130",
@@ -43,7 +43,7 @@ function OrderHistory() {
       id: "9178",
       customerId: "022401",
       time: "25 Dec 2021",
-      deliveryAddress: "29 Eve street",
+      deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876",
       amount: "$249.7",
       paymentMethod: "Cash on Delivery",
       contact: "994-51-410-3130",
@@ -60,14 +60,12 @@ function OrderHistory() {
   ];
 
   return (
-    <div className="container">
-      <div className="tableContainer">
+    <div className="containerHistory">
         <ReusableTable
           columns={columns}
           data={historyList}
           className="orderHistoryTable"
         />
-      </div>
     </div>
   );
 }

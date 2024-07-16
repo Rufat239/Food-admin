@@ -4,8 +4,8 @@ import '../../Style/subNavOrderHistory.css'
 function SubNavOrderHistory() {
   return (
     <div className='navbarHistory'>
-        <div className='heading'>
-        <h1 className='text'>History</h1>
+        <div className='headingHistory'>
+        <h1 className='textHistory'>History</h1>
       </div>
     </div>
   )
