@@ -1,54 +1,54 @@
-/* .cat-nav {
-    position: absolute;
-    width: 78%;
-    height: 73px;
-    left: 280px;
-    top: 92px;
-    border-radius: 14px;
-    background: rgb(39, 40, 60);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  } */
+.cat-nav {
+  position: absolute;
+  width: 78%;
+  height: 73px;
+  left: 280px;
+  top: 92px;
+  border-radius: 14px;
+  background: rgb(39, 40, 60);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+} 
 
-  /* .category {
+.category {
 
-    width: 168px;
-    height: 35px;
-    margin-right: 21px;
-    top: 98px;
-    opacity: 1px;    
-    background: rgb(192, 53, 162);
-    color: white;
-    box-sizing: border-box;
-    border: 2px solid rgb(192, 53, 162);
-    border-radius: 14px;
-    box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
-  }
-  .category:hover {
-    background: rgb(150, 40, 130);
-    cursor: pointer;
-  } */
+  width: 168px;
+  height: 35px;
+  margin-right: 21px;
+  top: 98px;
+  opacity: 1px;    
+  background: rgb(192, 53, 162);
+  color: white;
+  box-sizing: border-box;
+  border: 2px solid rgb(192, 53, 162);
+  border-radius: 14px;
+  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
+}
+.category:hover {
+  background: rgb(150, 40, 130);
+  cursor: pointer;
+}
 
-  /* .heading {
-    width: 122px;
-    height: 32px;
-    left: 33px;
-    top: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 33px;
-  }
+.heading {
+  width: 122px;
+  height: 32px;
+  left: 33px;
+  top: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 33px;
+}
 
-  .heading h1 {
-    color: rgba(242, 242, 242, 0.87);
-    font-family: "Roboto";
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.313rem;
-    letter-spacing: 0.1px;
-    text-align: left;
-  } */
-  
+.heading h1 {
+  color: rgba(242, 242, 242, 0.87);
+  font-family: "Roboto";
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.313rem;
+  letter-spacing: 0.1px;
+  text-align: left;
+}
+ 
