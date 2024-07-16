@@ -2,10 +2,9 @@
 
 .offerContainer {
   position: absolute;
-  left: 23.5em;
+  left: 22.5em;
   width: 77%;
   top: 5.65em;
- 
 }
 
 .offerHeader {
@@ -15,21 +14,23 @@
   align-items: center;
   background-color: #27283c;
   border-radius: 0.8rem;
-
 }
 
 .offerHeader h2 {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
   padding-left: 2em;
-  color: #f2f2f2;
-  font-size: 1.25rem;
+  letter-spacing: 0.3px;
+  color: #c7c7c7;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
 .addOfferButton {
   width: 12.5em;
-  height: 3em;
+  height: 2.6em;
   background-color: #c035a2;
+  border: 2px solid #C035A2;
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -39,23 +40,65 @@
   /* font-family: "Roboto", sans-serif; */
   border-radius: 1.8rem;
   margin-right: 1.3em;
+  padding-left: 1.7em;
+  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.20);
+  /* padding-left: 30px; */
 }
 
 .addOfferButton:hover {
   background-color: #852871;
 }
 
-.addOfferButton h2,
-.addOfferButton h3 {
+.addOfferButton ,
+.addOfferButton span {
   font-weight: 700;
-  font-size: 0.95rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.addOfferButton h3 {
-  padding-right: 2em;
+.addOfferButton span {
+  padding-right: 2.5em;
+  letter-spacing: 0.25px
 }
 
-.addOfferButton h2 {
-  padding-left: 0.5em;
+
+
+@media (max-width: 432px) {
+  .offerContainer {
+    position: absolute;
+    left: 1em;
+    width: 92%;
+    margin-top: 41px;
+    top: 5.65em;
+  }
+  .offerHeader {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    height: 6.7em;
+    
+  }
+  .offerHeader h2 {
+    margin-left: -14em;
+    margin-top: 0.6em;
+    margin-bottom: 0.9em;
+    font-size: 1.45rem;
+  }
+
+  .addOfferButton {
+    width: 21.5em;
+    margin-right: 1.3em;
+    padding-left: 3.7em;
+
+    border-radius: 0.25rem;
+    margin-left: 1.5em;
+      transform: translateY(-1em); 
+
+  }
+
+  .addOfferButton span {
+    padding-right: 7em;
+    letter-spacing: 0.25px
+  }
 }

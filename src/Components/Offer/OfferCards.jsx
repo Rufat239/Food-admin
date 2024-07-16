@@ -6,6 +6,9 @@ import Edit from "../../assets/SVG/edit.svg"
 // import pizza from '../../assets/offerImages/pizza.png';
 import pizza from "../../NavbarImages/Background.png"
 function OfferCards() {
+
+  
+
   const offers = [
     {
       id: 9177,

@@ -2,7 +2,7 @@
 
 .offerContainer1 {
   position: absolute;
-  left: 23.5em;
+  left: 22.5em;
   width: 77%;
   top: 10.62em;
 }
@@ -16,41 +16,35 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 1em;
-  /* padding: 18px 35 px; */
 }
 
 .offerList thead {
   background-color: #ffffff;
-  /* height: 4.06em; */
 }
-
-/* .offerList thead tr{
-    height: 4.06em;
-  } */
 
 .offerList thead th {
   font-family: "Open Sans", sans-serif;
-  /* padding: 8px; */
   height: 3.9em;
   border-bottom: 2px solid #c9cfda;
   vertical-align: bottom;
   padding-bottom: 0.7em;
 }
 
-.idContainer {
+.offerIdContainer {
   text-align: center;
   display: flex;
   align-items: center;
-  width: 3.5em;
-  height: 1.5em;
+  /* width: 100%; */
+  width: 3.7em;
+  height: 1.6em;
   border: 1px solid #dfe2e9;
   border-radius: 10px;
   justify-content: center;
-  margin-left: 31px;
+  margin-left: 4em;
 }
 
-.id {
-  font-size: 0.8rem;
+.offerId {
+  font-size: 0.9rem;
 }
 
 .offerList tbody tr {
@@ -65,7 +59,6 @@
 .offerList th,
 .offerList td {
   text-align: center;
-  /* padding: 8px; */
 }
 
 .offerList img {
@@ -104,7 +97,6 @@
   flex-direction: row;
   align-items: center;
   height: 7vh;
-  /* text-align: center; */
   gap: 0.5em;
 }
 
@@ -115,8 +107,83 @@
   cursor: pointer;
   padding: 0;
 }
+
 .edit img,
 .delete img {
   width: 100%;
   height: 100%;
+}
+
+/* Additional styles for ID cells */
+.idCell {
+  padding: 0;
+  width: 3.7em;
+  height: 1.6em;
+}
+
+
+/* Küçük ekranlar için media query */
+@media (max-width: 432px) {
+
+  .offerContainer1 {
+    position: absolute;
+    margin-top: 94px;
+    left: 1em;
+    width: 92%;
+    top: 10.62em;
+    overflow-x: auto;
+   
+  }
+  /* .offerList table {
+    display: block;
+    overflow-x: auto;
+  } */
+  .offerList thead {
+   width: 90%;
+  }
+
+  .offerList thead th {
+    width: 20%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .offerList tbody tr {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #dfe2e9;
+    padding: 10px;
+  }
+  .offerList tbody tr td {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  .offerList tbody tr td::before {
+    content: attr(data-label);
+    flex-basis: 50%;
+    text-align: left;
+    font-weight: bold;
+  }
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 7vh;
+    gap: 0.5em;
+  }
+  
+  .edit,
+  .delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .edit img,
+  .delete img {
+    width: 100%;
+    height: 100%;
+  }
 }
