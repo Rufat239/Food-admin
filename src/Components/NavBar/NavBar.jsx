@@ -162,7 +162,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link className="navLink">
+            <Link className="navLink" to="/">
               <img src={imageLogout} alt="" />
               Logout
             </Link>

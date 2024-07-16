@@ -1,7 +1,8 @@
 // src/Login.js
-import React from 'react';
-import '../Style/Login.css'; 
-import photo from "../assets/loginImages/login-illustration.svg"
+import React from "react";
+import "../Style/Login.css";
+import photo from "../assets/loginImages/login-illustration.svg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -12,13 +13,27 @@ const Login = () => {
           <form>
             <div className="input-group">
               <label htmlFor="username"></label>
-              <input type="text" id="username" name="username" placeholder='Username'/>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+              />
             </div>
             <div className="input-group">
               <label htmlFor="password"></label>
-              <input type="password" id="password" name="password" placeholder='Password' />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+              />
             </div>
-            <button type="submit" className="login-button">Sign In</button>
+            <Link to="/dashboardPage">
+              <button type="submit" className="login-button">
+                Sign In
+              </button>
+            </Link>
           </form>
         </div>
         <div className="login-image">
