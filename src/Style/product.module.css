@@ -35,7 +35,6 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 21px; /* 150% */
   letter-spacing: 0.1px;
 }
 .filterLine .filterActions button {
@@ -106,4 +105,34 @@
 }
 .productActions svg {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .all {
+    width: 98%;
+    left: 1%;
+  }
+  .filterLine {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+  .filterActions {
+    flex-direction: column;
+  }
+  .filterActions button {
+    width: 40vh !important;
+  }
+  .filterActions select option {
+    width: 10vh !important;
+  }
+  .products {
+    flex-direction: column;
+  }
+  .productCard {
+    margin: auto;
+    width: 80%;
+  }
+  .productCard img {
+    width: 100%;
+  }
 }

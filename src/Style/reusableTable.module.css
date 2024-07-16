@@ -8,3 +8,10 @@ td {
 thead {
   padding: 10px 0;
 }
+
+@media only screen and (max-width: 768px) {
+  table {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}

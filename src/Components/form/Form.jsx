@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../Style/form.css";
 
-function Form({ title, subtitle, onClose, objectWithSchema }) {
-  const { data, schema } = objectWithSchema;
-
-  const [formData, setFormData] = useState(data);
-
-  console.log(objectWithSchema);
+function Form({ object, title, subtitle, onClose, dropdown }) {
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    setFormData(data);
-  }, [data]);
+    setFormData(object);
+  }, [object]);
 
   const handleSubmit = (e) => {
     console.log(formData);
@@ -23,50 +19,6 @@ function Form({ title, subtitle, onClose, objectWithSchema }) {
     });
   };
 
-  const renderInput = (key, fieldType, options) => {
-    switch (fieldType) {
-      case "text":
-      case "number":
-        return (
-          <input
-            type={fieldType}
-            name={key}
-            value={formData[key] || ""}
-            onChange={handleChange}
-          />
-        );
-
-      case "textarea":
-        return (
-          <textarea
-            name={key}
-            value={formData[key] || ""}
-            onChange={handleChange}
-          />
-        );
-
-      case "select":
-        return (
-          <select name={key} value={formData[key]} onChange={handleChange}>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.content}
-              </option>
-            ))}
-          </select>
-        );
-      default:
-        return (
-          <input
-            type="text"
-            name={key}
-            value={formData[key] || ""}
-            onChange={handleChange}
-          />
-        );
-    }
-  };
-
   return (
     <>
       <div>
@@ -77,14 +29,27 @@ function Form({ title, subtitle, onClose, objectWithSchema }) {
           </div>
           <div className="formSideBar">
             <form>
-              {Object.keys(schema).map((key) => (
+              {Object.keys(formData).map((key) => (
                 <div key={key}>
-                  <label htmlFor="">{schema[key].label}</label>
+                  <label htmlFor="">{key}</label>
                   <br />
 
-                  {renderInput(key, schema[key].type, schema[key].options)}
+                  <input
+                    type="text"
+                    name={key}
+                    value={formData[key] || ""}
+                    onChange={handleChange}
+                  />
                 </div>
               ))}
+              <label htmlFor="">Restaurants</label>
+              <br />
+              <select name="" id="">
+                {dropdown.map((item) => (
+                  <option value={item.value}>{item.content}</option>
+                ))}
+              </select>
+              <br />
             </form>
           </div>
         </div>
