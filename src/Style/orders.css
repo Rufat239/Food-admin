@@ -1,0 +1,133 @@
+
+.orders{
+   position: absolute;
+    left: 280px;
+    top: 200px;
+    width: 78%;
+    height: 120vh;
+   
+}
+
+
+.ordersList{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+    
+ }
+ 
+ .ordersList thead tr {
+    box-shadow: inset 0px -1px 0px 0px rgb(201, 207, 218);
+    height: 65px;
+}
+
+.ordersList thead tr th{
+   color: rgb(0, 7, 43);
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   height: 24px;
+   font-weight: 700;
+   line-height: 24px;
+   padding-top: 20px;  
+   width: 10%;  
+}
+
+ .ordersList tbody tr {
+    box-shadow: inset 0px -1px 0px 0px rgb(223, 226, 233);
+    height: 61px;  
+ }
+ .ordersList tbody tr td{
+    color: rgb(0, 7, 43);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    width: 14%;
+ }
+
+ .orders-id{
+    position: relative;
+    width: 50px;
+    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+ }
+
+ .orders-p,
+ .orders-p2
+ {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 12px 2px 12px;
+    box-sizing: border-box;
+    border: 1px solid rgb(223, 226, 233);
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 10px 0px;
+    margin-left: 27px;
+    color: rgb(0, 7, 43);
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+ }
+ 
+ .orders-customerid{
+   width: 84px;
+   height: 37px;
+    position: relative;
+    text-align: center;
+    padding-left: 6px;
+    
+ }
+ .orders-adress{
+  margin-left: 24px;
+ }
+ .ordersAdress-p{
+   width: 175px;
+   display: flex;
+   flex-direction: row;
+  align-items: center;
+  text-align: left;
+  color: rgb(0, 7, 43);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+ }
+
+ .orders-buttons{
+   width: 60px;
+    background: rgb(255, 255, 255);
+    display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: flex-end;
+padding: 12px;
+    
+ }
+
+ .eyeButton{
+   width: 27px;
+   height: 25px;
+    border: none;
+    background: rgb(255, 255, 255);
+
+ }
+ .delete-Button{
+   width: 14px;
+    height: 28px;
+    border: none;
+    background: rgb(255, 255, 255);
+ }
