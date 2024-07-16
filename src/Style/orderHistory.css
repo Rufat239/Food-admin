@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .container {
-    width: 78%;
+    width: 76%;
     position: absolute;
     left: 310px;
     top: 190px;
@@ -31,6 +31,7 @@
     color: #00072B;
     font-size: 14px;
     text-align: center;
+    width: 10%;
    
   }
   
@@ -42,6 +43,7 @@
   .container thead th {
     height: 65px;
     background-color: #FFFFFF;
+    width: 10%;
   }
   
 
@@ -51,7 +53,7 @@
 
   .idContainer,
   .customerID{
-    width: 47px;
+    width: 50px;
     height: 24px;
     color: #454D59;
     padding: 0;
@@ -61,6 +63,17 @@
     justify-content: center;
     border: 1px solid #DFE2E9;
     border-radius: 5px;
-    margin-left: 75px;
+    margin-left: 50px;
+  }
+
+  @media only screen and (max-width: 432px) {
+    .container {
+      width: 92%;
+      position: absolute;
+      left: 1em;
+      top: 190px;
+      border-radius: 3px;
+      
+    }
   }
   
