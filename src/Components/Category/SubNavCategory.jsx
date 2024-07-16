@@ -43,7 +43,7 @@ function SubNavCategory() {
 
   return (
     <div className='cat-nav'>
-  <div className='heading'>
+  <div className='cat-heading'>
     <h1>Category</h1>
   </div>
   <div className='click'>
