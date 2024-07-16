@@ -1,24 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 .container-tab {
-  font-family: "Open Sans";
-  margin-left: 300px;
-  width: 75%; 
-  display: flex;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 284px;
+  width: 78%; 
+  top: 200px;
+  height: 140vh;
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   
 }
 
 .table {
-  position: absolute;
-  top: 200px;
-  width: 77%;
+ 
+  width: 100%;
   border-collapse: collapse;
   background-color: white;
  
 }
+
+
 
 .td img {
   width: 48px;
@@ -27,15 +30,16 @@
   opacity: 1;
 }
 
-.th {
+.table thead tr  {
   border-bottom: 1px solid #DFE2E9;
   height: 65px;
 }
 
-.th-short {
-  width: 50px; 
-  
+.table thead tr th{
+  box-shadow: inset 0 -1px 0 0 rgb(223, 226, 233);
 }
+
+
 
  .td-number{
 position: relative;
@@ -45,7 +49,7 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 align-items: flex-start;
-padding: 14px 12px 14px 12px;
+/* padding: 14px 12px 14px 12px; */
 text-align: center;
 }
 
@@ -68,34 +72,33 @@ border: 1px solid rgb(223, 226, 233);
 border-radius: 8px;
 background: rgb(255, 255, 255);
 gap: 10px;
-margin-left: 58px;
+margin-left: 50px;
 }
 
-.td {
+td {
   height: 49px;
   text-align: center;
   border-bottom: 1px solid #DFE2E9;
   opacity: 1;
 }
 
-.buttons {
+.cat-buttons {
   position: relative;
-  width: 94px;
+  width: 15px;
   height: 48px;
   display: flex;
   flex-direction:row;
   justify-content: center;
   align-items: center;
-  padding: 12px;
-  box-shadow: inset 0 -1px 0 0 rgb(223, 226, 233);
+  padding: 0px;
 }
 
 .editButton img {
   border: none;
   position: absolute;
   width: 24px; 
-  height: 24px; 
-  left: 40px; 
+  height: 18px; 
+  left: 1px; 
   top: 15;  
   bottom: 14px;
 }
@@ -106,11 +109,12 @@ margin-left: 58px;
 }
 .deleteButton img {
   border: none;
-  width: 14px; 
-  height: 18px; 
+  width: 30px; 
+  height: 20px; 
   position: absolute;
-  right: 15;
-  top: 15; 
+  left: 30px;
+  right: 0px;
+  top: 15px; 
   bottom: 14px;
 }
 

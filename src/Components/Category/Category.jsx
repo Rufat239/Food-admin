@@ -35,7 +35,7 @@ const columns = [
     key: "actions",
     title: "",
     render: (text, record) => (
-      <div className="buttons">
+      <div className="cat-buttons">
         <button className="editButton">
           <img src={editIcon} alt="Edit" />
         </button>
@@ -49,9 +49,11 @@ const columns = [
 
 function Category() {
   return (
+
     <div className="container-tab">
       <Table columns={columns} data={data} className="table" />
     </div>
+    
   );
 }
 
