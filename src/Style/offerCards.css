@@ -2,9 +2,9 @@
 
 .offerContainer1 {
   position: absolute;
-  left: 24.5em;
+  left: 21.5%;
   width: 77%;
-  top: 10.62em;
+  top: 23%;
 }
 
 .offerList {
@@ -31,15 +31,16 @@
 }
 
 .offerIdContainer {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   align-items: center;
   /* width: 100%; */
-  width: 3.7em;
+  width: 3.5em;
   height: 1.6em;
   border: 1px solid #dfe2e9;
   border-radius: 10px;
   justify-content: center;
+  /* transform: translateX(2.5em); */
   margin-left: 4em;
 }
 
@@ -114,15 +115,9 @@
   height: 100%;
 }
 
-/* Additional styles for ID cells */
-.idCell {
-  padding: 0;
-  width: 3.7em;
-  height: 1.6em;
-}
 
 
-/* Küçük ekranlar için media query */
+/* For small size screen */
 @media (max-width: 432px) {
 
   .offerContainer1 {
