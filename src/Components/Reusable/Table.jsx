@@ -1,28 +1,30 @@
 import React from "react";
-import "../../Style/reusableTable.module.css";
+import styles from "../../Style/reusableTable.module.css";
 
 const ReusableTable = ({ columns, data, className }) => {
   return (
-    <table className={className}>
-      <thead>
-        <tr>
-          {columns.map((col) => (
-            <th key={col.key}>{col.title}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
+    <div className={styles["table-container"]}>
+      <table className={className}>
+        <thead>
+          <tr>
             {columns.map((col) => (
-              <td key={col.key}>
-                {col.render ? col.render(row[col.key], row) : row[col.key]}
-              </td>
+              <th key={col.key}>{col.title}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {columns.map((col) => (
+                <td key={col.key}>
+                  {col.render ? col.render(row[col.key], row) : row[col.key]}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
