@@ -12,22 +12,10 @@ function SubNavCategory() {
       image: "",
       name: "",
       description: "",
-      price: "",
-      restaurants: "",
     },
     schema: {
       image: { type: "text", label: "Image" },
       name: { type: "text", label: "Name" },
-      description: { type: "textarea", label: "Description" },
-      price: { type: "number", label: "Price" },
-      restaurants: {
-        type: "select",
-        label: "Restaurants",
-        options: [
-          { value: "fastFood", content: "Papa John's" },
-          { value: "italian", content: "Italian" },
-        ],
-      },
     },
   };
 
@@ -51,8 +39,8 @@ function SubNavCategory() {
     <SideBar Show={showSideBar} onClose={closeSideBar}>
             <Form
               objectWithSchema={objectWithSchema}
-              title="Add Product"
-              subtitle="Add your Product description and necessary information"
+              title="Add Category"
+              subtitle="Add your category information"
               onClose={closeSideBar}
             />
           </SideBar>
