@@ -91,6 +91,9 @@
 .actionsColumn {
   width: 8%;
 }
+.idContainer {
+  margin: auto !important;
+}
 
 /* Action buttons- Edit, Delete */
 .actions {
@@ -115,11 +118,8 @@
   height: 100%;
 }
 
-
-
 /* For small size screen */
 @media (max-width: 432px) {
-
   .offerContainer1 {
     position: absolute;
     margin-top: 94px;
@@ -127,14 +127,13 @@
     width: 92%;
     top: 10.62em;
     overflow-x: auto;
-   
   }
   /* .offerList table {
     display: block;
     overflow-x: auto;
   } */
-  .offerList thead {
-   width: 90%;
+  /* .offerList thead {
+    width: 90%;
   }
 
   .offerList thead th {
@@ -167,7 +166,7 @@
     height: 7vh;
     gap: 0.5em;
   }
-  
+
   .edit,
   .delete {
     background: none;
@@ -175,10 +174,10 @@
     cursor: pointer;
     padding: 0;
   }
-  
+
   .edit img,
   .delete img {
     width: 100%;
     height: 100%;
-  }
+  } */
 }
