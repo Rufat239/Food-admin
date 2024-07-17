@@ -3,11 +3,11 @@
 .ordersName{
     position: absolute;
     background-color: rgb(39, 40, 60);
-    width: 78%;
+    width: 77%;
     height: 73px;
     border-radius: 14px;
     top: 90px;
-    left: 20%;
+    left: 21%;
  }
 
  .orders-word{
