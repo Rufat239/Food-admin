@@ -39,8 +39,9 @@
   width: 130px;
   border-radius: 15px;
   border: 0;
-  background-color: #c74feb;
+  background-color: #c035a2;
   color: white;
+  border: 2px solid #c035a2;
 }
 
 .btnLang {
@@ -58,7 +59,7 @@
   height: 550px;
   /* border: 2px solid red; */
   margin-left: 15px;
-  background-color: #c035a2;
+  background-color: #c74feb;
   border-radius: 15px;
 }
 
