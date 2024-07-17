@@ -1,14 +1,11 @@
 import React from "react";
 import "../../Style/offerCards.css";
 import Table from "../Reusable/Table.jsx";
-import Delete from "../../assets/SVG/delete.svg"
-import Edit from "../../assets/SVG/edit.svg"
+import Delete from "../../assets/SVG/delete.svg";
+import Edit from "../../assets/SVG/edit.svg";
 // import pizza from '../../assets/offerImages/pizza.png';
-import pizza from "../../NavbarImages/Background.png"
+import pizza from "../../NavbarImages/Background.png";
 function OfferCards() {
-
-  
-
   const offers = [
     {
       id: 9177,
