@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
@@ -11,8 +12,8 @@ const firebaseConfig = {
   databaseURL: "https://foody-bef5c-default-rtdb.firebaseio.com",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const database = getDatabase(app);
 
-export { database };
+export { auth, database };
