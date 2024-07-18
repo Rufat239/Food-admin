@@ -4,6 +4,8 @@ import photo from "../assets/loginImages/login-illustration.svg";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase/firebaseConfig";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,8 +17,11 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboardPage");
+      toast.success("Login successful!", {
+        onClose: () => navigate("/dashboardPage"),
+      });
     } catch (error) {
+      toast.error("Your password or email is incorrect!");
       setError("Your password or email is incorrect!");
     }
   };
@@ -59,6 +64,7 @@ const Login = () => {
           <img src={photo} alt="Login Illustration" />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
