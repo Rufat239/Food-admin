@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
-import Style from '../../Style/subnavrestaurants.css'
+import React, { useState } from 'react';
+import Style from '../../Style/subnavrestaurants.css';
 import SideBar from '../sideBar/SideBar';
 import Form from '../form/Form';
 
-
-function SubNavBarRestaurants() {
-
+function SubNavBarRestaurants({ addRestaurant }) {
     const [showSideBar, setShowSideBar] = useState(false);
-
+    const [formData, setFormData] = useState({
+        image: "",
+        name: "",
+        cuisine: "",
+        deliveryPrice: "",
+        deliveryMin: "",
+        address: "",
+        category: "",
+    });
 
     const objectWithSchema = {
-        data: {
-            image: "",
-            name: "",
-            cuisine: "",
-            deliveryPrice: "",
-            deliveryMin: "",
-            address: "",
-            category: "",
-        },
+        data: formData,
         schema: {
             image: { type: "text", label: "Image" },
             name: { type: "text", label: "Name" },
@@ -45,6 +43,17 @@ function SubNavBarRestaurants() {
     const closeSideBar = () => {
         setShowSideBar(false);
         document.body.style.overflow = "auto";
+    };
+
+    const handleFormSubmit = (data) => {
+        addRestaurant(data);
+        closeSideBar();
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleFormSubmit(formData);
+        }
     };
 
     return (
@@ -74,6 +83,8 @@ function SubNavBarRestaurants() {
                             title="Add Restaurants"
                             subtitle="Add your Restaurants Information"
                             onClose={closeSideBar}
+                            onSubmit={handleFormSubmit}
+                            onKeyPress={handleKeyPress}
                         />
                     </SideBar>
                 </div>
@@ -82,4 +93,4 @@ function SubNavBarRestaurants() {
     )
 }
 
-export default SubNavBarRestaurants
+export default SubNavBarRestaurants;
