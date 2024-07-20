@@ -1,40 +1,41 @@
 .navbarHistory {
-    width: 76%;
-    position: absolute;
-    left: 22.4%;
-    top: 12%;
- 
-  }
+  width: 76%;
+  position: absolute;
+  left: 21.4%;
+  top: 12%;
+
+}
 
 .textHistory {
-    background-color: rgba(66, 66, 93, 0.4);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: #F2F2F2DE;
-    text-align: start;
+  background-color: rgba(66, 66, 93, 0.4);
+  border-radius: 15px;
+  padding: 24px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.45rem;
+  
+  color: #F2F2F2DE;
+  text-align: start;
+}
+
+.headingHistory {
+  margin-bottom: 20px;
+ 
+}
+
+@media only screen and (max-width:431px){
+  .navbarHistory{
+    width: 92%;
+    position: absolute;
+    left: 1em;
+    top: 5.2em;
+    margin-top: 41px;
+    
+  }
+
+  .textHistory{
+    border-radius: 6px;
+    
   }
   
-  .headingHistory {
-    margin-bottom: 20px;
-    
-   
-  }
-
-  @media only screen and (max-width:431px){
-    .navbarHistory{
-      width: 93%;
-      position: absolute;
-      left: 1em;
-      top: 77px;
-      
-    }
-
-    .textHistory{
-      border-radius: 6px;
-      
-    }
-    
-  }
+}
