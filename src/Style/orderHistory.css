@@ -1,52 +1,4 @@
-.containerHistory {
-    width: 75%;
-    position: absolute;
-    left: 22.4%;
-    top: 29%;
-    border-radius: 3px;
-    
-  }
 
-  
-  
-  .containerHistory th {
-    border-bottom: 1px solid #DFE2E9;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    color: #00072B;
-    font-size: 14px;
-    text-align: center;
-   
-  }
-
-
-  .containerHistory td {
-    border-bottom: 1px solid #DFE2E9;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    color: #00072B;
-    font-size: 14px;
-    text-align: center;
-    width: 10%;
-   
-  }
-  
-  .containerHistory table {
-    background-color: #ffffff;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .containerHistory thead th {
-    height: 65px;
-    background-color: #FFFFFF;
-    width: 10%;
-  }
-  
-
-  .containerHistory tbody tr{
-    height: 61px;
-  }
 
   .idContainer,
   .customerID{
@@ -63,7 +15,7 @@
     margin-left: 50px;
   }
 
-  @media only screen and (max-width: 432px) {
+  /* @media only screen and (max-width: 432px) {
     .containerHistory {
       width: 92%;
       position: absolute;
@@ -72,5 +24,5 @@
       border-radius: 3px;
       
     }
-  }
+  } */
   
