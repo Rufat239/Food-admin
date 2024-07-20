@@ -40,8 +40,9 @@
   border: 1px solid #dfe2e9;
   border-radius: 10px;
   justify-content: center;
-  /* transform: translateX(2.5em); */
-  margin-left: 4em;
+  /* transform: translateX(2.5em) !important; */
+  /* margin-left: 4em; */
+  margin: auto !important;
 }
 
 .offerId {
@@ -71,7 +72,7 @@
 .feedback {
   font-family: "Open Sans", sans-serif;
 }
-
+/* 
 .idColumn {
   width: 10%;
 }
@@ -90,10 +91,14 @@
 
 .actionsColumn {
   width: 8%;
+<<<<<<< HEAD
 }
 .idContainer {
   margin: auto !important;
 }
+=======
+} */
+>>>>>>> 48815e0 (For merging)
 
 /* Action buttons- Edit, Delete */
 .actions {
@@ -132,47 +137,61 @@
     display: block;
     overflow-x: auto;
   } */
+<<<<<<< HEAD
   /* .offerList thead {
     width: 90%;
   }
+=======
+>>>>>>> 48815e0 (For merging)
 
-  .offerList thead th {
+  /* .offerList thead {
+   width: 90%;
+  } */
+
+  /* .offerList thead th {
     width: 20%;
     padding-left: 40px;
     padding-right: 40px;
-  }
-  .offerList tbody tr {
+  } */
+  /* .offerList tbody tr {
     width: 20%;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #dfe2e9;
     padding: 10px;
-  }
-  .offerList tbody tr td {
+  } */
+  /* .offerList tbody tr td {
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
-  }
-  .offerList tbody tr td::before {
+  } */
+  /* .offerList tbody tr td::before {
     content: attr(data-label);
     flex-basis: 50%;
     text-align: left;
     font-weight: bold;
-  }
-  .actions {
+  } */
+
+  /* .actions {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 7vh;
     gap: 0.5em;
   }
+<<<<<<< HEAD
 
   .edit,
+=======
+   */
+  /* .edit,
+>>>>>>> 48815e0 (For merging)
   .delete {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
+<<<<<<< HEAD
   }
 
   .edit img,
@@ -181,3 +200,13 @@
     height: 100%;
   } */
 }
+=======
+  } */
+  
+  /* .edit img,
+  .delete img {
+    width: 100%;
+    height: 100%;
+  }  */
+}
+>>>>>>> 48815e0 (For merging)
