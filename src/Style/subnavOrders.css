@@ -1,55 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-.ordersName{
-    position: absolute;
-    background-color: rgb(39, 40, 60);
-    width: 77%;
-    height: 73px;
-    border-radius: 14px;
-    top: 90px;
-    left: 21%;
- }
+.ordersName {
+   position: absolute;
+   background-color: rgb(39, 40, 60);
+   width: 76%;
+   height: 73px;
+   border-radius: 14px;
+   top: 14.5%;
+   left: 21.4%;
+}
 
- .orders-word{
-  width: 122px;
-  height: 32px;
-  margin-top: 20px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
- }
+.orders-word {
+   width: 122px;
+   height: 32px;
+   margin-top: 20px;
+   margin-left: 15px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
 
- .orders-word h1{
-  color:  rgba(242, 242, 242, 0.87);
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 21px;
-  letter-spacing: 0.1px; 
+}
 
- }
- @media (max-width:430px) {
-    .ordersName{
-        position: absolute;
-        background-color: rgb(39, 40, 60);
-        width: 95%;
-        height: 54px;
-        border-radius: 4px;
-        top: 120px;
-        left: 10px;
-    
-     }
-     .orders-word{
-        width: 130px;
-        height: 34px;
-        margin-top: 10px;
-        margin-left: 25px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        
-       }
-    
- }
+.orders-word h1 {
+   color: rgba(242, 242, 242, 0.87);
+   font-family: Roboto;
+   font-size: 20px;
+   font-weight: 500;
+   line-height: 21px;
+   letter-spacing: 0.1px;
+
+}
+
+@media (max-width:431px) {
+   .ordersName {
+      position: absolute;
+      background-color: rgb(39, 40, 60);
+      width: 92%;
+      border-radius: 4px;
+      margin-top: 41px;
+      top: 6.1em;
+      left: 1em;
+
+   }
+
+   .orders-word {
+      width: 130px;
+      height: 34px;
+      /* margin-top: 10px; */
+      margin-left: 25px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+   }
+
+}
