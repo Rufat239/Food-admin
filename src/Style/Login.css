@@ -40,6 +40,7 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
+  color: #c7c7c7;
 }
 
 .login-button {
@@ -57,4 +58,58 @@
   flex: 1;
   /* background: white url("login-illustration.svg") center center / cover
     no-repeat; */
+}
+
+.image2{
+  display: none;
+}
+
+.error{
+  color: red;
+  
+}
+
+
+@media (max-width: 431px) {
+  .login-box {
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+  }
+
+.login-image {
+  height: auto;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.image1{
+  display: none;
+}
+
+.image2{
+  display: block;
+  width: 60%;
+  height: 60%;
+}
+
+.welcome{
+  text-align: center;
+  font-size: 40px;
+}
+
+form div{
+  display: flex;
+  justify-content: center;
+}
+
+.login-container{
+ padding: 0;
+}
+
+.error{
+  text-align: center;
+}
+ 
 }
