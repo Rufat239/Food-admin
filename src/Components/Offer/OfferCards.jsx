@@ -42,7 +42,7 @@ function OfferCards() {
     {
       key: "image",
       title: "Image",
-      render: (text) => <img src={text} alt="" />,
+      render: (text) => <img className="productImageOffer" src={text} alt="" />,
     },
     {
       key: "title",
@@ -71,9 +71,9 @@ function OfferCards() {
   ];
   return (
     <div className="offerContainer1">
-      <div className="offerList">
+      
         <Table columns={columns} data={offers} className="offerTable" />
-      </div>
+     
     </div>
   );
 }
