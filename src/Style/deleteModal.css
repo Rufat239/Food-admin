@@ -1,0 +1,104 @@
+.delete-modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    /* z-index: 999; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.delete-modal-container {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px 25px 40px 27px;
+    /* z-index: 1000; */
+    /* max-width: 25%; */
+    width: 30%;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
+
+.textDelete-modal h1 {
+    color: #000;
+    font-family: "Open Sans";
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.textDelete-modal p {
+    width: 100%;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    /* margin-left: 50px; */
+
+}
+
+
+.modal-cancel-button {
+    background-color: #FFF;
+    border: 2px solid #BDBDBD;
+    border-radius: 4px;
+    padding: 5px 35px;
+    font-family: Roboto;
+    font-size: 16px;
+    color: #BDBDBD;
+}
+
+.modal-delete-button{
+    background-color: #D63626;
+    border: 1px solid #D63626;
+    border-radius: 4px;
+    padding: 5px 35px;
+    font-family: Roboto;
+    font-size: 16px;
+    color: #FFF;
+
+}
+
+.deleteModal-buttons{
+    /* width: 95%; */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+    
+}
+
+@media screen and (max-width: 431px) {
+    .delete-modal-container{
+        width: 70%;
+        padding-inline: 10%;
+    }
+
+    .textDelete-modal h1{
+        width: 90%;
+    }
+
+    .deleteModal-buttons {
+       
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .modal-cancel-button{
+        height: 38px;
+    }
+
+    .modal-delete-button{
+        height: 38px;
+    }
+
+    
+}
