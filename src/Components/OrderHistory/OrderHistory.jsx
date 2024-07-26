@@ -2,23 +2,25 @@ import React from "react";
 import "../../Style/orderHistory.css";
 import ReusableTable from "../Reusable/Table.jsx";
 
-
-
 function OrderHistory() {
   const columns = [
     {
-      key: 'id', title: 'ID', render: (text) => (
+      key: "id",
+      title: "ID",
+      render: (text) => (
         <div className="idContainer">
           <p className="id">{text}</p>
         </div>
-      )
+      ),
     },
     {
-      key: 'customerId', title: 'Customer ID', render: (text) => (
+      key: "customerId",
+      title: "Customer ID",
+      render: (text) => (
         <div className="customerID">
           <p className="id">{text}</p>
         </div>
-      )
+      ),
     },
     { key: "time", title: "Time" },
     { key: "deliveryAddress", title: "Delivery Address" },
@@ -26,8 +28,6 @@ function OrderHistory() {
     { key: "paymentMethod", title: "Payment Method" },
     { key: "contact", title: "Contact" },
   ];
-
-
 
   const historyList = [
     {
@@ -61,11 +61,11 @@ function OrderHistory() {
 
   return (
     <div className="containerHistory">
-        <ReusableTable
-          columns={columns}
-          data={historyList}
-          className="orderHistoryTable"
-        />
+      <ReusableTable
+        columns={columns}
+        data={historyList}
+        className="orderHistoryTable"
+      />
     </div>
   );
 }
