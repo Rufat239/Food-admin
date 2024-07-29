@@ -4,8 +4,8 @@
     gap: 10px;
     width: 80%;
     position: absolute;
-    top: 205px;
-    left: 300px;
+    top: 30%;
+    left: 20%;
 }
 
 .cards {
@@ -28,7 +28,7 @@
 }
 
 .cards-image img {
-    width: 65px;
+    width: 3%;
     height: 57px;
     border-radius: 8px;
     object-fit: cover;
