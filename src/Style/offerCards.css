@@ -1,35 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-
-.offerContainer1 {
-  position: absolute;
-  left: 21.5%;
-  width: 77%;
-  top: 23%;
-}
-
-.offerList {
-  background-color: white;
-  margin-top: 2.5em;
-}
-
-.offerList table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1em;
-}
-
-.offerList thead {
-  background-color: #ffffff;
-}
-
-.offerList thead th {
-  font-family: "Open Sans", sans-serif;
-  height: 3.9em;
-  border-bottom: 2px solid #c9cfda;
-  vertical-align: bottom;
-  padding-bottom: 0.7em;
-}
-
 .offerIdContainer {
   /* text-align: center; */
   display: flex;
@@ -40,8 +8,9 @@
   border: 1px solid #dfe2e9;
   border-radius: 10px;
   justify-content: center;
-  /* transform: translateX(2.5em); */
-  margin-left: 4em;
+  /* transform: translateX(2.5em) !important; */
+  /* margin-left: 4em; */
+  margin: auto !important;
 }
 
 .offerId {
@@ -62,7 +31,7 @@
   text-align: center;
 }
 
-.offerList img {
+.productImageOffer {
   width: 3em;
   height: 3em;
 }
@@ -72,28 +41,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.idColumn {
-  width: 10%;
-}
 
-.imageColumn {
-  width: 15%;
-}
 
-.titleColumn {
-  width: 25%;
-}
 
-.descriptionColumn {
-  width: 35%;
-}
-
-.actionsColumn {
-  width: 8%;
-}
 .idContainer {
   margin: auto !important;
 }
+ 
+
 
 /* Action buttons- Edit, Delete */
 .actions {
@@ -118,66 +73,7 @@
   height: 100%;
 }
 
-/* For small size screen */
-@media (max-width: 432px) {
-  .offerContainer1 {
-    position: absolute;
-    margin-top: 94px;
-    left: 1em;
-    width: 92%;
-    top: 10.62em;
-    overflow-x: auto;
-  }
-  /* .offerList table {
-    display: block;
-    overflow-x: auto;
-  } */
-  /* .offerList thead {
-    width: 90%;
-  }
 
-  .offerList thead th {
-    width: 20%;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .offerList tbody tr {
-    width: 20%;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #dfe2e9;
-    padding: 10px;
-  }
-  .offerList tbody tr td {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-  }
-  .offerList tbody tr td::before {
-    content: attr(data-label);
-    flex-basis: 50%;
-    text-align: left;
-    font-weight: bold;
-  }
-  .actions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 7vh;
-    gap: 0.5em;
-  }
 
-  .edit,
-  .delete {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
 
-  .edit img,
-  .delete img {
-    width: 100%;
-    height: 100%;
-  } */
-}
+ 

@@ -30,12 +30,11 @@ function SubNavCategory() {
 
 
   return (
-    <div className='cat-nav'>
+  <div className='cat-container'>
   <div className='cat-heading'>
-    <h1>Category</h1>
-  </div>
-  <div className='click'>
-    <button className='category' onClick={openSideBar}>+ADD CATEGORY</button>
+    <h2>Category</h2>
+  
+    <button className='category' onClick={openSideBar}>+<span>ADD CATEGORY</span></button>
     <SideBar Show={showSideBar} onClose={closeSideBar}>
             <Form
               objectWithSchema={objectWithSchema}
@@ -45,7 +44,8 @@ function SubNavCategory() {
             />
           </SideBar>
   </div>
- </div>
+  </div>
+
   
   )
 }
