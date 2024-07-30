@@ -1,52 +1,4 @@
 
-/* .orders{
-   position: absolute;
-    left: 21%;
-    top: 32%;
-    width: 77%;
-    height: 120vh;
-   
-}
-
-
-.ordersList{
-    width: 100%;
-    border-collapse: collapse;
-    background-color: rgb(255, 255, 255);
-    border-radius: 1px;
-    
- }
- 
- .ordersList thead tr {
-    box-shadow: inset 0px -1px 0px 0px rgb(201, 207, 218);
-    height: 65px;
-}
-
-.ordersList thead tr th{
-   color: rgb(0, 7, 43);
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   height: 24px;
-   font-weight: 700;
-   line-height: 24px;
-   padding-top: 20px;  
-   width: 10%;  
-}
-
- .ordersList tbody tr {
-    box-shadow: inset 0px -1px 0px 0px rgb(223, 226, 233);
-    height: 61px;  
- }
- .ordersList tbody tr td{
-    color: rgb(0, 7, 43);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 0.25px;
-    text-align: center;
-    width: 14%;
- } */
 
  .orders-id{
     position: relative;
@@ -132,27 +84,3 @@
     border: none;
     background: rgb(255, 255, 255);
  }
-
- /* @media (max-width:430px) {
-   .orders{
-      position: absolute;
-       left: 2%;
-       top: 14em;
-       width: 96%;
-       
-      
-   }
-   .ordersList thead tr th{
-      padding-left: 37px;
-      width: 20%;
-      
-   }
-   .orders-adress{
-      margin-left: 25px;
-     }
-     .ordersList tbody tr td{
-       padding-left: 0px;
-      width: 40%;
-   }
-  
- } */
