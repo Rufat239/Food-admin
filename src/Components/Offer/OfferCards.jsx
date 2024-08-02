@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Style/offerCards.css";
 import Table from "../Reusable/Table.jsx";
 import Delete from "../../assets/SVG/delete.svg";
 import Edit from "../../assets/SVG/edit.svg";
 // import pizza from '../../assets/offerImages/pizza.png';
 import pizza from "../../NavbarImages/Background.png";
+import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 function OfferCards() {
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const offers = [
     {
       id: 9177,
@@ -26,8 +28,11 @@ function OfferCards() {
       description: "Yummy this pizza but...",
     },
   ];
-  function handleDelete(id) {
-    console.log(id);
+  const handleShowDeleteModal = (id) => {
+    setShowDeleteModal(id)
+  }
+  const handleCancel = () => {
+    setShowDeleteModal(false)
   }
   const columns = [
     {
@@ -62,18 +67,20 @@ function OfferCards() {
           <button className="edit">
             <img src={Edit} alt="Edit" />
           </button>
-          <button className="delete" onClick={() => handleDelete(record.id)}>
+          <button className="delete" onClick={() => handleShowDeleteModal(record.id)}>
             <img src={Delete} alt="Delete" />
           </button>
         </div>
-      ),
+      )
     },
   ];
   return (
     <div className="offerContainer1">
-      
-        <Table columns={columns} data={offers} className="offerTable" />
-     
+      <Table columns={columns} data={offers} className="offerTable" />
+      {showDeleteModal  && (
+            <DeleteModal
+            onCancel = {handleCancel}/>
+          )}
     </div>
   );
 }
