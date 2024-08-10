@@ -25,7 +25,7 @@ function Dashboard() {
               <img src={ellipse} alt="" />
               <span>KLM</span>
             </div>
-            <img src={ellipse2} alt="" />
+            <img src={ellipse2} alt="" className="imgAE" />
             <span className="ordersTxtAE">American Express</span>
           </div>
         </div>
