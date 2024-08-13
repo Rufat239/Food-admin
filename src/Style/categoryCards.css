@@ -57,7 +57,7 @@ background: rgb(255, 255, 255);
 .editButton{
   border: none;
   background: white;
-
+  cursor: pointer;
 }
 .deleteButton img {
   border: none;
@@ -73,5 +73,6 @@ background: rgb(255, 255, 255);
 .deleteButton{
   border: none;
   background: white;
+  cursor: pointer;
 }
 

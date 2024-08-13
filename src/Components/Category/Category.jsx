@@ -7,8 +7,11 @@ import pizza from '../../assets/SVG/pizza.svg'
 import sendvic from '../../assets/SVG/sendvic.svg'
 import fries from '../../assets/SVG/fries.svg'
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
+import SideBar from "../sideBar/SideBar"
+import Form from "../form/Form";
 function Category() {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showSideBar, setShowSideBar] = useState(false);
   const data = [
     { id: 9177, image: pizza, name: "Pizza", slug: "yummy-pizza" },
     { id: 9178, image: sendvic, name: "Sendvic", slug: "sendvic" },
@@ -34,7 +37,7 @@ function Category() {
       title: "",
       render: (text, record) => (
         <div className="cat-buttons">
-          <button className="editButton">
+         <button className="editButton" onClick={() => openSideBar(record.id)}>
             <img src={editIcon} alt="Edit" />
           </button>
           <button className="deleteButton" onClick={() => handleShowDeleteModal(record.id) }>
@@ -44,6 +47,29 @@ function Category() {
       ),
     },
   ];
+  const objectWithSchema = {
+    data: {
+      image: "",
+      name: "",
+      description: "",
+      slug:"",
+    },
+    schema: {
+      image: { type: "text", label: "Image" },
+      name: { type: "text", label: "Name" },
+      slug:{type:"text", label:"Slug"},
+    },
+  };
+
+  const openSideBar = (id) => {
+    setShowSideBar(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeSideBar = () => {
+    setShowSideBar(false);
+    document.body.style.overflow = "auto";
+  };
   const handleShowDeleteModal = (id) => {
     setShowDeleteModal(id)
   }
@@ -57,6 +83,14 @@ function Category() {
         <DeleteModal
         onCancel={handleCancel}/>
       )}
+        <SideBar Show={showSideBar} onClose={closeSideBar}>
+        <Form
+          objectWithSchema={objectWithSchema}
+          title="Edit Category"
+          subtitle="Edit your category information"
+          onClose={closeSideBar}
+        />
+      </SideBar>
     </div>
   );
 }
