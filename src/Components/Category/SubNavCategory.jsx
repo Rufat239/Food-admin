@@ -9,13 +9,15 @@ function SubNavCategory() {
 
   const objectWithSchema = {
     data: {
-      image: "",
+      // image: "",
       name: "",
-      description: "",
+      // description: "",
+      slug:""
     },
     schema: {
-      image: { type: "text", label: "Image" },
+      // image: { type: "text", label: "Image" },
       name: { type: "text", label: "Name" },
+      slug: {type:"text", label:"Slug"},
     },
   };
 
@@ -32,15 +34,18 @@ function SubNavCategory() {
   return (
   <div className='cat-container'>
   <div className='cat-heading'>
-    <h2>Category</h2>
+    <h2 className='cat-headingH2'>Category</h2>
   
     <button className='category' onClick={openSideBar}>+<span>ADD CATEGORY</span></button>
     <SideBar Show={showSideBar} onClose={closeSideBar}>
             <Form
               objectWithSchema={objectWithSchema}
               title="Add Category"
-              subtitle="Add your category information"
+              upload="your category"
+              subtitle="Add your Category information"
+              page="Create Category"
               onClose={closeSideBar}
+              formType={"postCategory"}
             />
           </SideBar>
   </div>
