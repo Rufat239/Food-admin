@@ -1,138 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 .sideBar {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  /* padding-bottom: 1%;  */
+  /* padding-block: ; */
+  box-sizing: border-box;
   display: flex;
-  margin-bottom: 40px;
+  flex-direction: column;
+  gap: 100px;
+}
+/* Scroll Bar Tasarımı */
+.sideBar::-webkit-scrollbar {
+  width: 3px;
+}
+.sideBar::-webkit-scrollbar-thumb {
+  background-color: #ef5da8;
+  border-radius: 10px;
+}
+.sideBar::-webkit-scrollbar-track {
+  background-color: #38394e;
+  height: 10vh;
+}
+.noScroll {
+  overflow-y: hidden;
+}
+.scroll {
+  overflow-y: auto;
 }
 
-.descriptionSideBar {
-  width: 30%;
+.descriptioSidebar {
+  display: flex;
 }
-
-.descriptionSideBar h2 {
-  color: #c7c7c7;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+.modalTitle {
+  margin-top: 2px;
   margin-left: 30px;
-  margin-top: 10px;
-}
-
-.descriptionSideBar p {
   color: #c7c7c7;
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 30px;
+  font-family: "Roboto";
+  font-size: 25px;
   font-weight: 500;
-  margin-top: 20px;
+  width: 25%;
+  margin-bottom: 20px;
 }
-
+.uploadLabel {
+  width: 25%;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Roboto";
+  color: #c7c7c7;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+.modalSubtitle {
+  width: 25%;
+  margin-left: 30px;
+  font-size: 16px;
+  font-family: "Roboto";
+  color: #c7c7c7;
+  font-weight: 500;
+}
 .formSideBar {
   width: 60%;
-  /* height: 75vh; */
-  /* border: 1px solid white; */
-  border-radius: 10px;
+  min-height: 161px;
+  border-radius: 14px;
   margin-top: 2%;
   margin-left: 50px;
+  /* margin-bottom: 100px; */
   background-color: #43445a;
 }
+.imageInputSection {
+  border-radius: 14px;
+  margin-left: 50px;
+  background-color: #43445a;
+  width: 60%;
+  height: 122px;
+}
+.imageInputDiv {
+  margin-top: 4%;
+}
 
+/* Input adjusting of Form */
 .formSideBar form {
   margin-top: 30px;
   margin-left: 30px;
   width: 90%;
-  height: 65vh;
-  /* border: 1px solid white; */
-  /* margin-bottom: 40px; */
+  /* min-height: 161px; */
 }
-
 .formSideBar form label {
   color: #c7c7c7;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: "Roboto";
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.16px;
 }
-
 .formSideBar form input {
-  width: 98%;
-  height: 5vh;
+  width: 95%;
+  height: 5.5vh;
+  /* height: 46px; */
   margin-top: 8px;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
   background-color: #5a5b70;
   border: 0;
-  border-radius: 10px;
+  border-radius: 14px;
+  padding-left: 20px;
   color: #c7c7c7;
 }
-
 .formSideBar form textarea {
-  width: 98%;
-  height: 10vh;
+  width: 92%;
+  height: 8vh;
   margin-top: 8px;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
   background-color: #5a5b70;
   border: 0;
-  border-radius: 10px;
+  border-radius: 14px;
+  padding: 20px 20px 20px 20px;
   color: #c7c7c7;
 }
-
 .formSideBar form select {
-  width: 98%;
-  height: 5vh;
+  width: 100%;
+  height: 5.5vh;
   margin-top: 8px;
+  margin-bottom: 6%;
   background-color: #5a5b70;
   border: 0;
-  border-radius: 10px;
+  border-radius: 14px;
+  padding-left: 20px;
   color: #c7c7c7;
 }
 
-.btnsSideBar {
+/* Image Upload part of Modal */
+.uploadWrapper {
   display: flex;
-  justify-content: space-around;
-  margin-top: 3%;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
-.btnsSideBar button {
-  width: 38%;
-  height: 5vh;
-  border-radius: 10px;
-  color: #c7c7c7;
-  font-size: 16px;
-  font-weight: 600;
+.cloudImage {
+  width: 10%;
+  height: 10%;
 }
-hr {
+
+.uploadLabelText {
+  font-size: 16px;
+  color: #c7c7c7;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+/* Bottom part of Modal with button */
+.reusableModalBottom {
+  /* position: fixed; */
+  /* bottom: 0;  */
+  width: 100%;
+  background-color: inherit;
+  margin-top: auto;
+  /* padding: 10px 0;  */
+  /* z-index: 10;  */
+}
+.reusableModalBottom hr {
   width: 92%;
   height: 2px;
   border: 0;
-  background-color: #5a5b70;
-  &:hover {
-    background-color: #1979c4;
-  }
-}
-
-.btnCancel {
+  border-radius: 14px;
   background-color: #43445a;
+  /* margin-top: 30px; */
+  /* margin-bottom: 20px; */
 }
-
+.btnsSideBar {
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: 1%; */
+  /* margin-bottom: 1%; */
+}
+.btnsSideBar button {
+  width: 38%;
+  /* height: 6.5vh; */
+  height: 50px;
+  text-align: center;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto";
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0.25px;
+}
+.btnCancel {
+  border: 2px solid #38394e;
+  background-color: #43445a;
+  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
+  cursor: pointer;
+}
 .btnSubmit {
   background-color: #c035a2;
+  border: 2px solid #c035a2;
+  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
+  cursor: pointer;
 }
 
+
+
 @media only screen and (max-width: 431px) {
-  .sideBar {
-    display: block;
+  .modalTitle {
+    margin-left: 20px;
+    width: 65%;
+    margin-bottom: 40px;
   }
-  .descriptionSideBar {
-    width: 100%;
+  .formSideBarSection {
+    flex-direction: column;
+  }
+  .modalSubtitle {
+    width: 65%;
+    margin-left: 20px;
+  }
+  .imageUploadSection {
+    flex-direction: column;
+  }
+  .uploadLabel {
+    width: 65%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  .imageInputSection {
+    border-radius: 4px;
+    width: 90%;
+    height: 99px;
+    margin-left: 20px;
   }
   .formSideBar {
-    width: 100%;
-    height: 65vh;
-    margin: 0;
+    width: 90%;
+    border-radius: 4px;
+    margin-left: 20px;
   }
-
   .formSideBar form {
-    margin-top: 30px;
-    margin-left: 30px;
-    padding-top: 20px;
-    width: 88%;
-    /* height: 45vh; */
-    /* border: 1px solid white; */
-    /* margin-bottom: 10px; */
+    margin-left: 20px;
   }
+  
+.formSideBar form input {
+  width: 100%;
+  height: 3.5vh;
+  margin-top: 25px;
+  margin-bottom: 3%;
+
+}
+.formSideBar form textarea {
+  width: 100%;
+  height: 6vh;
+  margin-top: 25px;
+  padding: 10px 10px 10px 10px;
+ 
+}
+.formSideBar form select {
+  width: 100%;
+  height: 3.5vh;
+  margin-top: 25px;
+
+}
+.btnsSideBar button{
+  border-radius: 4px;
+}
 }

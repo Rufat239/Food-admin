@@ -6,12 +6,15 @@ function SideBar({ Show, onClose, children }) {
     return null;
   }
   return (
-    <div className="sideBarOwerlay">
+    <div className="sideBarOwerlayDiv">
+  <div className="sideBarOwerlay">
       <button className="sideBarClose" onClick={onClose}>
         x
       </button>
       <div className="modalContent">{children}</div>
     </div>
+    </div>
+  
   );
 }
 
