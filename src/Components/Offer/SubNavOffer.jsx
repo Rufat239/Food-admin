@@ -10,13 +10,13 @@ function SubNavOffer() {
 
   const objectWithSchema = {
     data: {
-      image: "",
+      // image: "",
       title: "",
       description: "",
      
     },
     schema: {
-      image: { type: "text", label: "Image" },
+      // image: { type: "file", label: "Image" },
       title: { type: "text", label: "Title" },
       description: { type: "textarea", label: "Description" },
      
@@ -35,22 +35,27 @@ function SubNavOffer() {
 
   return (
     
+    
          <div className="offerContainer">
+          <SideBar Show={showSideBar} onClose={closeSideBar}>
+            <Form
+              objectWithSchema={objectWithSchema}
+              title="Add Offer"
+              upload = "your offer"
+              subtitle="Add your Offer information"
+              page ="Create Offer"
+              onClose={closeSideBar}
+              formType={"postOffer"}
+            />
+          </SideBar>
           
       <div className="offerHeader">
-        <h2>Offers</h2>
+        <h2 className='offerHeaderH2'>Offers</h2>
         <button className="addOfferButton" onClick={openSideBar} >
           +
           <span>ADD OFFER</span>
         </button>
-        <SideBar Show={showSideBar} onClose={closeSideBar}>
-            <Form
-              objectWithSchema={objectWithSchema}
-              title="Add Offer"
-              subtitle="Add your Offer information"
-              onClose={closeSideBar}
-            />
-          </SideBar>
+        
       </div>
       </div>
    
