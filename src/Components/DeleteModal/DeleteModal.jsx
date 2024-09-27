@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../Style/deleteModal.css'
 
-function DeleteModal({onCancel}) {
+function DeleteModal({onCancel,deleted}) {
   return (
     <div className='delete-modal-overlay'>
     <div className='delete-modal-container'>
@@ -11,7 +11,7 @@ function DeleteModal({onCancel}) {
         </div>
         <div className='deleteModal-buttons'>
             <button onClick={onCancel} className='modal-cancel-button'>cancel</button>
-            <button className='modal-delete-button'>delete</button>
+            <button onClick ={deleted} className='modal-delete-button'>delete</button>
         </div>
     </div>
 
