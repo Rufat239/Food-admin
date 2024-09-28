@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default addProductToFirebase = async (
+const addProductToFirebase = async (
   productData = { title: "", description: "", price: "", image: "" }
 ) => {
   const storageFolderName = "products";
@@ -10,7 +10,7 @@ export default addProductToFirebase = async (
 
   try {
     const { data } = await axios.post(
-      `https://firebasestorage.googleapis.com/v0/b/${projectID}.appspot.com/o/${storageFolderName}%2F${pictureName}.png`,
+      `https://firebasestorage.googleapis.com/v0/b/${projectID}.appspot.com/o/${storageFolderName}%2F${pictureName}.png?uploadType=media`,
       productData.image,
       {
         headers: {
@@ -33,9 +33,14 @@ export default addProductToFirebase = async (
       product
     );
 
-    console.log("Ürün başarıyla eklendi!");
+    console.log("elave olundu");
   } catch (error) {
-    console.error("Ürün eklerken hata oluştu:", error);
+    console.error(error);
+    if (error.response) {
+      console.error(error.response.data);
+    }
     throw error;
   }
 };
+
+export default addProductToFirebase;

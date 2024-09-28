@@ -2,62 +2,66 @@ import React, { useEffect, useState } from "react";
 import "../../Style/form.css";
 import cloudImage from "../../assets/cloudImage/cloudImage.png";
 import postOffer from "../../service/offers/createOffer";
-import updatedOffer from "../../service/offers/updateOffer"
+import updatedOffer from "../../service/offers/updateOffer";
 import postRestaurant from "../../service/restaurant/createRestaurant";
-import updatedRestaurant from "../../service/restaurant/updateRestaurant"
+import updatedRestaurant from "../../service/restaurant/updateRestaurant";
 import postCategory from "../../service/category/createCategory";
 import updatedCategory from "../../service/category/updateCategory";
 // import addProductToFirebase from "../../service/product/addProduct"
 import { addProductToFirebase } from "../../service/product/addProduct";
 
-
-function Form({ title, upload,  subtitle, onClose, objectWithSchema ,page, formType , isEdit= false, offerId=null, restaurantId=null, categoryId=null}) {
+function Form({
+  title,
+  upload,
+  subtitle,
+  onClose,
+  objectWithSchema,
+  page,
+  formType,
+  isEdit = false,
+  offerId = null,
+  restaurantId = null,
+  categoryId = null,
+}) {
   const { data, schema } = objectWithSchema;
   const [formData, setFormData] = useState(data);
   const [selectedFile, setSelectedFile] = useState(null);
 
-
   useEffect(() => {
     setFormData(data);
-   
-  }, [data]);  
-  
-  
+  }, [data]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault() //bunu elave etdim
-     
+    e.preventDefault(); //bunu elave etdim
+
     try {
       // Offer
       if (formType === "postOffer") {
-        await postOffer(formData); 
+        await postOffer(formData);
       } else if (isEdit && formType === "editOffer") {
         await updatedOffer(offerId, formData);
       }
-  
+
       // Restaurant
       else if (formType === "postRestaurant") {
-        await postRestaurant(formData); 
+        await postRestaurant(formData);
       } else if (isEdit && formType === "editRestaurant") {
-        await updatedRestaurant(restaurantId, formData); 
+        await updatedRestaurant(restaurantId, formData);
       }
-      
+
       // Category
       else if (formType === "postCategory") {
-        await postCategory(formData); 
+        await postCategory(formData);
       } else if (isEdit && formType === "editCategory") {
-        await updatedCategory(categoryId, formData); 
+        await updatedCategory(categoryId, formData);
       }
 
       // Product
       else if (formType === "addProductToFirebase") {
-        await addProductToFirebase(formData); 
-      } 
+        await addProductToFirebase(formData);
+      }
 
-
-      
-
-      onClose() // ve bunu elave etdim 
+      onClose(); // ve bunu elave etdim
       window.location.reload();
     } catch (error) {
       console.log("Error posting offer:", error);
@@ -161,7 +165,8 @@ function Form({ title, upload,  subtitle, onClose, objectWithSchema ,page, formT
               <h2 className="modalTitle">{title}</h2>
 
               {/* "Upload image" text display here*/}
-              <section className="imageUploadSection"
+              <section
+                className="imageUploadSection"
                 style={{
                   display: "flex",
                   marginTop: "-10px",
