@@ -4,47 +4,59 @@ import cloudImage from "../../assets/cloudImage/cloudImage.png";
 import postOffer from "../../service/offers/createOffer";
 import updatedOffer from "../../service/offers/updateOffer"
 import postRestaurant from "../../service/restaurant/createRestaurant";
+import updatedRestaurant from "../../service/restaurant/updateRestaurant"
+import postCategory from "../../service/category/createCategory";
+import updatedCategory from "../../service/category/updateCategory";
+// import addProductToFirebase from "../../service/product/addProduct"
+import { addProductToFirebase } from "../../service/product/addProduct";
 
-function Form({ title, upload,  subtitle, onClose, objectWithSchema ,page, formType , isEdit= false, offerId=null}) {
+
+function Form({ title, upload,  subtitle, onClose, objectWithSchema ,page, formType , isEdit= false, offerId=null, restaurantId=null, categoryId=null}) {
   const { data, schema } = objectWithSchema;
   const [formData, setFormData] = useState(data);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  // const [scrollClass, setScrollClass] = useState("noScroll");
 
   useEffect(() => {
     setFormData(data);
-    // const inputCount = Object.keys(schema).length;
-    // if (inputCount > 3) {
-    //   setScrollClass("scroll");
-    // } else {
-    //   setScrollClass("noScroll");
-    // }
+   
   }, [data]);  
-  // console.log(isEdit, formType);
+  
   
 
   const handleSubmit = async (e) => {
     e.preventDefault() //bunu elave etdim
-
-    // if (!selectedFile) {
-    //   console.log("No image selected");
-    //   return;
-    // }
-    
+     
     try {
-      if(formType === "postOffer"){
-        await postOffer(formData);
-        // console.log("indi yoxla" );
-        
-      }else if(formType === "postRestaurant"){
-        await postRestaurant(formData)
+      // Offer
+      if (formType === "postOffer") {
+        await postOffer(formData); 
+      } else if (isEdit && formType === "editOffer") {
+        await updatedOffer(offerId, formData);
       }
-      else if(isEdit && formType=== "updatedOffer"){
-        console.log("isledi");
-        
-        await updatedOffer(offerId , formData )
+  
+      // Restaurant
+      else if (formType === "postRestaurant") {
+        await postRestaurant(formData); 
+      } else if (isEdit && formType === "editRestaurant") {
+        await updatedRestaurant(restaurantId, formData); 
       }
+      
+      // Category
+      else if (formType === "postCategory") {
+        await postCategory(formData); 
+      } else if (isEdit && formType === "editCategory") {
+        await updatedCategory(categoryId, formData); 
+      }
+
+      // Product
+      else if (formType === "addProductToFirebase") {
+        await addProductToFirebase(formData); 
+      } 
+
+
+      
+
       onClose() // ve bunu elave etdim 
       window.location.reload();
     } catch (error) {
