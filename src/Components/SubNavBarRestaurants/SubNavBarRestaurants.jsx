@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Style from '../../Style/subnavrestaurants.css';
 import SideBar from '../sideBar/SideBar';
 import Form from '../form/Form';
-function SubNavBarRestaurants({ addRestaurant }) {
+function SubNavBarRestaurants({ addRestaurant,onCategoryChange }) {
     const [showSideBar, setShowSideBar] = useState(false);
     const [formData, setFormData] = useState({
         // image: "",
@@ -34,11 +34,19 @@ function SubNavBarRestaurants({ addRestaurant }) {
                     { value: "Kebab", content: "Kebab" },
                     { value: "Roll", content: "Roll" },
                     { value: "Soup", content: "Soup" },
-                    { value: "Sea food", content: "Sea Food" },
+                    { value: "Sea Food", content: "Sea Food" },
                     { value: "Chinese", content: "Chinese" }
                 ],
             },
         },
+    };
+
+    // FOR FILTERED RESTAURANT
+    const [selectedCategory,setSelectedCategory] = useState("all")
+    const handleCategoryChange = (e) => {
+        const category = e.target.value;
+        setSelectedCategory(category);
+        onCategoryChange(category); 
     };
     const openSideBar = () => {
         setShowSideBar(true);
@@ -70,15 +78,16 @@ function SubNavBarRestaurants({ addRestaurant }) {
                 </div>
                 <div className='sub-nav-right'>
                     <form action="">
-                        <select name="restaurants-category" className='formRestaurant' id="restaurants-category">
-                            <option value="category">Category type</option>
-                            <option value="Fast-Food">Fast Food</option>
+                        <select name="restaurants-category" className='formRestaurant' id="restaurants-category" onChange={handleCategoryChange}>
+                            <option value="all">All Restaurants</option>
+                            <option value="Fast Food">Fast Food</option>
+                            <option value="Italian">Italian</option>
                             <option value="Pizza">Pizza</option>
                             <option value="Doner">Doner</option>
                             <option value="Kebab">Kebab</option>
                             <option value="Roll">Roll</option>
                             <option value="Soup">Soup</option>
-                            <option value="Sea-Food">Sea Food</option>
+                            <option value="Sea Food">Sea Food</option>
                             <option value="Chinese">Chinese</option>
                         </select>
                         <div className="select-arrow-restaurant">&#9660;</div>
