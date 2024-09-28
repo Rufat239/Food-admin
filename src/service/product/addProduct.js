@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addProductToFirebase = async (
+export default addProductToFirebase = async (
   productData = { title: "", description: "", price: "", image: "" }
 ) => {
   const storageFolderName = "products";
