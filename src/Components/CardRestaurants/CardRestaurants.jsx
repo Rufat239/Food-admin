@@ -9,10 +9,11 @@ import Form from '../form/Form';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import deletedRestaurant from '../../service/restaurant/deleteRestaurant';
 import Loading from '../Loading/Loading';
+import { Pagination } from '@mui/material';
 
 
 
-function Restaurants() {
+function Restaurants({ restaurnats, selectedCategory }) {
     const [restaurants, setRestaurants] = useState([])
     const [restaurantID, setRestaurantID] = useState("")
     const [loading, setLoading] = useState(false)
@@ -42,7 +43,7 @@ function Restaurants() {
                 type: "select",
                 label: "Category",
                 options: [
-                    { value: "categories", content: "Categories" },
+                    { value: "all", content: "Categories" },
                     { value: "Fast Food", content: "Fast Food" },
                     { value: "Italian", content: "Italian" },
                     { value: "Pizza", content: "Pizza" },
@@ -50,8 +51,9 @@ function Restaurants() {
                     { value: "Kebab", content: "Kebab" },
                     { value: "Roll", content: "Roll" },
                     { value: "Soup", content: "Soup" },
-                    { value: "Sea food", content: "Sea Food" },
-                    { value: "Chinese", content: "Chinese" }
+                    { value: "Sea Food", content: "Sea Food" },
+                    { value: "Chinese", content: "Chinese" },
+                    { value: "Japanese", content: "Japanese" }
                 ],
             },
         },
@@ -85,6 +87,17 @@ function Restaurants() {
     }, []);
     // // // // //
 
+
+    // FOR FILTERED RESTAURANT
+
+    const filteredRestaurants = selectedCategory === "all"
+        ? restaurants
+        : restaurants.filter(restaurant => restaurant.category === selectedCategory);
+
+
+
+
+    // // // // //    
 
     // FOR EDIT
     const [selectedRestaurant, setSelectedRestaurant] = useState(null)
@@ -135,35 +148,56 @@ function Restaurants() {
     };
     // // // // // //
 
+
+
+
+    // FOR PAGINATION
+    const [page, setPage] = useState(1);
+    const [itemsPerPage] = useState(8);
+
+    const indexOfLastRestaurant = page * itemsPerPage;
+    const indexOfFirstRestaurant = indexOfLastRestaurant - itemsPerPage;
+    const currentRestaurants = filteredRestaurants.slice(indexOfFirstRestaurant, indexOfLastRestaurant);
+
     return (
-        <div className='all-restaurant-component'>
-            <div className='cardListRestaurant'>
+        <div className="all-restaurant-component">
+            <div className="cardListRestaurant">
                 {loading ? (
                     <>
-                        {restaurants.length > 0 ? (
-                            restaurants.map((restaurant) => (
+                        {currentRestaurants.length > 0 ? (
+                            currentRestaurants.map((restaurant) => (
                                 <div className="card-res" key={restaurant.id}>
-                                    <div className='cardsRestaurant'>
-                                        <div className='cards-image'>
+                                    <div className="cardsRestaurant">
+                                        <div className="cards-image">
                                             <img src={restaurant.url} alt={restaurant.name} />
                                         </div>
-                                        <div className='cards-info'>
+                                        <div className="cards-info">
                                             <h5>{restaurant.name}</h5>
                                             <p>{restaurant.category}</p>
                                         </div>
-                                        <div className='cards-edit'>
-                                            <img src={Editsvg} alt="Edit" onClick={() => {
-                                                openSideBar(restaurant)
-                                                setRestaurantID(restaurant.id)
-                                            }} />
-                                            <img src={Deletesvg} alt="Delete" onClick={() => handleShowDeleteModal(restaurant.id)} />
+                                        <div className="cards-edit">
+                                            <img
+                                                src={Editsvg}
+                                                alt="Edit"
+                                                onClick={() => {
+                                                    openSideBar(restaurant);
+                                                    setRestaurantID(restaurant.id);
+                                                }}
+                                            />
+                                            <img
+                                                src={Deletesvg}
+                                                alt="Delete"
+                                                onClick={() => handleShowDeleteModal(restaurant.id)}
+                                            />
                                         </div>
                                     </div>
                                 </div>
                             ))
                         ) : (
-                            <p className='emptyRestaurantList'>No restaurants available</p>
+                            <p className="emptyRestaurantList">No restaurants available</p>
                         )}
+                       
+
                         <SideBar Show={showSideBar} onClose={closeSideBar}>
                             <Form
                                 objectWithSchema={objectWithSchema}
@@ -175,16 +209,52 @@ function Restaurants() {
                                 isEdit={true}
                                 restaurantId={restaurantID}
                                 formType="updateRestaurant"
-
                             />
                         </SideBar>
-                        {showDeleteModal && <DeleteModal onCancel={() => setShowDeleteModal(false)} deleted={deleteRestaurant} />}
+                        {showDeleteModal && (
+                            <DeleteModal
+                                onCancel={() => setShowDeleteModal(false)}
+                                deleted={deleteRestaurant}
+                            />
+                        )}
                     </>
                 ) : (
                     <Loading />
                 )}
             </div>
+            <div className='pagination-container'>
+            <Pagination
+                            className='pagination-restaurant'
+                            count={Math.ceil(filteredRestaurants.length / itemsPerPage)}
+                            page={page}
+                            onChange={(event, value) => setPage(value)}
+                            variant="outlined" color="secondary"
+                            sx={{
+                                '& .MuiPaginationItem-root': {
+                                    minWidth: '48px', 
+                                    minHeight: '48px', 
+                                    fontSize: '14px', 
+                                    color: '#FFF',
+                                    borderRadius: "50%",
+                                    border: ' 1px solid #EC5CF8',
+                                    '&:hover': {
+                                        backgroundColor: '#EC5CF8',
+                                    },
+                                },
+                                '& .MuiPaginationItem-previousNext': {
+                                    transition: 'background-color 0.3s ease', 
+                                    '&:hover': {
+                                        backgroundColor: 'rgba(236, 92, 248, 1)', 
+                                    },
+                                }
+                        
+                             
+    
+                            }}
+                        />
+            </div>
         </div>
     );
+
 }
 export default Restaurants;
