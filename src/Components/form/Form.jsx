@@ -27,8 +27,10 @@ function Form({
   const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
-    setFormData(data);
-  }, [data]);
+    if(isEdit && data){
+      setFormData(data);
+    }
+  }, [data, isEdit]);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); //bunu elave etdim
@@ -37,21 +39,21 @@ function Form({
       // Offer
       if (formType === "postOffer") {
         await postOffer(formData);
-      } else if (isEdit && formType === "editOffer") {
+      } else if (isEdit && formType === "updatedOffer") {
         await updatedOffer(offerId, formData);
       }
 
       // Restaurant
       else if (formType === "postRestaurant") {
         await postRestaurant(formData);
-      } else if (isEdit && formType === "editRestaurant") {
+      } else if (isEdit && formType === "updateRestaurant") {
         await updatedRestaurant(restaurantId, formData);
       }
 
       // Category
       else if (formType === "postCategory") {
         await postCategory(formData);
-      } else if (isEdit && formType === "editCategory") {
+      } else if (isEdit && formType === "updatedCategory") {
         await updatedCategory(categoryId, formData);
       }
 
@@ -63,7 +65,7 @@ function Form({
       onClose(); // ve bunu elave etdim
       window.location.reload();
     } catch (error) {
-      console.log("Error posting offer:", error);
+      console.log("Error updating:", error);
     }
   };
 
