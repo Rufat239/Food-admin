@@ -93,7 +93,9 @@ function NavBar() {
             <Form
               objectWithSchema={objectWithSchema}
               title="Add Product"
+              upload = "your product"
               subtitle="Add your Product description and necessary information"
+              page= "Create Product"
               onClose={closeSideBar}
             />
           </SideBar>
