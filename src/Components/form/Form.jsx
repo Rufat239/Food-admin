@@ -7,8 +7,7 @@ import postRestaurant from "../../service/restaurant/createRestaurant";
 import updatedRestaurant from "../../service/restaurant/updateRestaurant";
 import postCategory from "../../service/category/createCategory";
 import updatedCategory from "../../service/category/updateCategory";
-// import addProductToFirebase from "../../service/product/addProduct"
-import { addProductToFirebase } from "../../service/product/addProduct";
+import  addProductToFirebase  from "../../service/product/addProduct";
 
 function Form({
   title,
