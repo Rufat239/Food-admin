@@ -96,6 +96,7 @@ function NavBar() {
               upload = "your product"
               subtitle="Add your Product description and necessary information"
               page= "Create Product"
+              formType= "addProductToFirebase"
               onClose={closeSideBar}
             />
           </SideBar>
