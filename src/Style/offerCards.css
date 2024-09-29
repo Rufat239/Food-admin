@@ -25,14 +25,33 @@
 .offerList th,
 .offerList td {
   text-align: center;
+  vertical-align: middle;
+
 }
+
+/* .offerList td {
+  display: flex;                
+  justify-content: center;      
+  align-items: center;           
+  height: 3em;                   
+  overflow: hidden;              
+} */
+
 .productImageOffer {
   width: 3em;
   height: 3em;
+  margin: auto;
 }
 .question,
 .feedback {
   font-family: "Open Sans", sans-serif;
+  max-width: 200px;         /* Maksimum genişlik */
+  white-space: nowrap;      /* Tek satırda kal */
+  overflow: hidden;         /* Taşan içeriği gizle */
+  text-overflow: ellipsis;  /* Taşan metni "..." ile göster */
+  text-align: center;       /* Metni ortala */
+  margin: auto;             /* Yatayda otomatik merkezle */
+  display: block; 
 }
 .idContainer {
   margin: auto !important;
