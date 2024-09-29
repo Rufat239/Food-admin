@@ -1,7 +1,13 @@
 import axios from "axios";
 
 const addProductToFirebase = async (
-  productData = { title: "", description: "", price: "", image: "" }
+  productData = {
+    title: "",
+    description: "",
+    price: "",
+    restaurant: "",
+    image: "",
+  }
 ) => {
   const storageFolderName = "products";
   const pictureName = productData.image.name.split(".")[0];
@@ -18,11 +24,11 @@ const addProductToFirebase = async (
         },
       }
     );
-
     const product = {
-      title: productData.title,
+      name: productData.name,
       description: productData.description,
       price: productData.price,
+      restaurant: productData.restaurant,
       imageUrl: `https://firebasestorage.googleapis.com/v0/b/${projectID}.appspot.com/o/${storageFolderName}%2F${pictureName}.png?alt=media&token=${
         data.downloadTokens || ""
       }`,
