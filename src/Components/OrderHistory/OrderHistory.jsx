@@ -1,69 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/orderHistory.css";
 import ReusableTable from "../Reusable/Table.jsx";
+import axios from "axios";
+
 
 function OrderHistory() {
+
+
+  const [ordersData,setOrdersData]= useState([])
+
+useEffect(() => {
+  const getOrderHistoryDatas =async() => {
+    const orderUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/orders.json`
+    try {
+      const response = await axios.get(orderUrl)
+      const data = response.data
+      console.log(data, "orderdata")
+      setOrdersData(Object.values(data))
+      
+    } catch (error) {
+      console.log("error")
+    }
+  }
+  getOrderHistoryDatas()
+},[])
+
+
   const columns = [
     {
       key: "id",
       title: "ID",
-      render: (text) => (
+      render: (text, record) => (
         <div className="idContainer">
-          <p className="id">{text}</p>
+          <p className="id">{record.id?.substring(0, 4)}</p>
         </div>
       ),
     },
     {
       key: "customerId",
       title: "Customer ID",
-      render: (text) => (
+      render: (text,record) => (
         <div className="customerID">
-          <p className="id">{text}</p>
+          <p className="id">{record.customerID ?.substring(0, 4)}</p>
         </div>
       ),
     },
     { key: "time", title: "Time" },
     { key: "deliveryAddress", title: "Delivery Address" },
-    { key: "amount", title: "Amount" },
+    { key: "totalPrice", title: "Amount" },
     { key: "paymentMethod", title: "Payment Method" },
-    { key: "contact", title: "Contact" },
+    { key: "contactNumber", title: "Contact" },
   ];
 
-  const historyList = [
-    {
-      id: "9177",
-      customerId: "022401",
-      time: "25 Dec 2021",
-      deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876 ",
-      amount: "$249.7",
-      paymentMethod: "Cash on Delivery",
-      contact: "994-51-410-3130",
-    },
-    {
-      id: "9178",
-      customerId: "022401",
-      time: "25 Dec 2021",
-      deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876",
-      amount: "$249.7",
-      paymentMethod: "Cash on Delivery",
-      contact: "994-51-410-3130",
-    },
-    {
-      id: "9179",
-      customerId: "022401",
-      time: "25 Dec 2021",
-      deliveryAddress: "29 Eve street",
-      amount: "$249.7",
-      paymentMethod: "Cash on Delivery",
-      contact: "994-51-410-3130",
-    },
-  ];
+
 
   return (
     <div className="containerHistory">
       <ReusableTable
         columns={columns}
-        data={historyList}
+        data={ordersData}
         className="orderHistoryTable"
       />
     </div>
