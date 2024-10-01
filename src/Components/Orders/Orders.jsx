@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../../Style/orders.css'
 import Table from "../Reusable/Table.jsx";
 import eye from '../../assets/SVG/eye.svg';
 import icon from '../../assets/SVG/delete.svg'
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
+import axios from "axios";
+
 function Orders() {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const data = [
@@ -16,15 +18,35 @@ function Orders() {
     {id: 9177,customerid: "022401", time: "25 Dec 2021", deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876",amount: "$249.7",paymentMethod: "Cash On Delivery", contact: "994-51-410-3130",},
     {id: 9177,customerid: "022401", time: "25 Dec 2021", deliveryAddress: "29 Eve Street, 543 Evenue Road, Ny 87876",amount: "$249.7",paymentMethod: "Cash On Delivery", contact: "994-51-410-3130",},
   ];
+
+  const [ordersData,setOrdersData]= useState([])
+
+useEffect(() => {
+  const getOrderHistoryDatas =async() => {
+    const orderUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/orders.json`
+    try {
+      const response = await axios.get(orderUrl)
+      const data = response.data
+      console.log(data, "orderdata")
+      setOrdersData(Object.values(data))
+      
+    } catch (error) {
+      console.log("error")
+    }
+  }
+  getOrderHistoryDatas()
+},[])
+
+
   const columns = [
-    { key: "id", title: "ID" ,render: (text)=>(
+    { key: "id", title: "ID" ,render: (text, record)=>(
       <div className="orders-id">
-        <p className="orders-p">{text}</p>
+        <p className="orders-p">{record.id?.substring(0,4)}</p>
       </div>
     )},
-    { key: "customerid", title: "Customer ID" ,render:(text)=>(
+    { key: "customerid", title: "Customer ID" ,render:(text, record)=>(
       <div className="orders-customerid">
-        <p className="orders-p2">{text}</p>
+        <p className="orders-p2">{record.customerID ?.substring(0, 4)}</p>
       </div>
     )},
     { key: "time", title: "Time" },
@@ -33,9 +55,9 @@ function Orders() {
         <p className="ordersAdress-p">{text}</p>
       </div>
     )  },
-    { key: "amount", title: "Amount" },
+    { key: "totalPrice", title: "Amount" },
     { key: "paymentMethod", title: "Payment Method" },
-    { key: "contact", title: "Contact" },
+    { key: "contactNumber", title: "Contact" },
     {
       key: "actions",
       title: "",
@@ -55,7 +77,7 @@ function Orders() {
   }
   return (
     <div className="orders">
-      <Table columns={columns} data={data} className="ordersList"/>
+      <Table columns={columns} data={ordersData} className="ordersList"/>
       {showDeleteModal && (
         <DeleteModal
         onCancel={handleCancel}/>
