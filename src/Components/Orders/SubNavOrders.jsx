@@ -5,7 +5,7 @@ function SubNavOrders() {
   return (
     <div className="ordersName">
         <div className='orders-word'>
-            <h1>Orders</h1>
+            <h1 className='textOrders'>Orders</h1>
        </div>
     </div>
   )
