@@ -87,7 +87,8 @@ function NavBar() {
 
         <div className="navBtns">
           <button className="addProductBtn" onClick={openSideBar}>
-            + <span className="addBtnTxt">ADD PRODUCT</span>
+           <span  className="addProductBtnSpan">+</span>
+           <span className="addBtnTxt">ADD PRODUCT</span>
           </button>
           <SideBar Show={showSideBar} onClose={closeSideBar}>
             <Form
@@ -100,7 +101,7 @@ function NavBar() {
               onClose={closeSideBar}
             />
           </SideBar>
-          <button className="btnLang">LANG</button>
+          {/* <button className="btnLang">LANG</button> */}
           <div className="imgAdmin">
             <img src={imageAdmin} />
             <span className="nameAdmin">Admin</span>
