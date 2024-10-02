@@ -83,3 +83,14 @@
     border: none;
     background: rgb(255, 255, 255);
  }
+
+ .orders-contact {
+   display: flex;
+   justify-content: center;
+ }
+ 
+ .ordersContact-p {
+   width: 150px;
+   text-align: center; 
+ }
+ 
