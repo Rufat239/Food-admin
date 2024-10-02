@@ -18,12 +18,13 @@
 
 .offerHeaderH2 {
   /* font-family: "Roboto", sans-serif; */
-  font-family: Arial, Helvetica, sans-serif;
-  padding-left: 2em;
+  font-family: "Roboto";
+  padding-left: 1em;
   letter-spacing: 0.3px;
   color: #c7c7c7;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 500;
+  /* text-align: left; */
 }
 
 .addOfferButton {
@@ -83,7 +84,8 @@
     margin-left: -14em;
     margin-top: 0.6em;
     margin-bottom: 0.9em;
-    font-size: 1.45rem;
+    padding-left: 2em;
+    /* font-size: 1.45rem; */
   }
 
   .addOfferButton {
