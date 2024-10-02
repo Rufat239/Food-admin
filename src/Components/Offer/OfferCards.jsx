@@ -113,9 +113,9 @@ useEffect(() => {
     {
       key: "id",
       title: "ID",
-      render: (text) => (
+      render: (text,record) => (
         <div className="idContainer">
-          <p className="id">{text}</p>
+          <p className="id">{record.id?.substring(0,4).replace(/-/g, "")}</p>
         </div>
       ),
     },
