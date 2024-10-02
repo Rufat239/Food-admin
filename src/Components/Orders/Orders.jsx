@@ -5,42 +5,70 @@ import icon from '../../assets/SVG/delete.svg';
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 import axios from "axios";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import Loading from "../Loading/Loading.jsx";
 
 function Orders() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [visibleContacts, setVisibleContacts] = useState({}); 
-
+  const [deleteId, setDeleteId] = useState(null);
+  const [visibleContacts, setVisibleContacts] = useState({});
+   // responsive dizayn ucun inline 
+   const isSmallScreen = window.innerWidth <= "431px";
+  
   // Fetch data from Client
-  const [ordersData, setOrdersData] = useState([]);
+  const [orderData, setOrderData] = useState([]);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    const getOrderHistoryDatas = async () => {
+    const getOrderDatas = async () => {
       const orderUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/orders.json`;
       try {
         const response = await axios.get(orderUrl);
         const data = response.data;
-        console.log(data, "orderdata");
-        setOrdersData(Object.values(data));
+
+        if (data) {
+          setOrderData(Object.values(data));
+        } else {
+          setOrderData([]);
+          console.log("No orders available");
+        }
       } catch (error) {
-        console.log("error");
+        console.log("Error fetching orders:", error);
+        setOrderData([]);
+      } finally {
+        setLoading(false); 
       }
     };
-    getOrderHistoryDatas();
+    getOrderDatas();
   }, []);
 
   // Toggle visibility for a specific contact by id
   const toggleVisibility = (id) => {
     setVisibleContacts((prevState) => ({
       ...prevState,
-      [id]: !prevState[id] 
+      [id]: !prevState[id]
     }));
   };
 
+  // Hide digits in contact number
   const hideContactNum = (num) => {
     return num.replace(/\d/g, "*");
   };
 
-  
+  // Function to delete the specific order by ID
+  const deleteOrder = async () => {
+    if (deleteId) {
+      try {
+        await axios.delete(`https://test-foody-admin-default-rtdb.firebaseio.com/orders/${deleteId}.json`);
+        console.log("Deleted order with ID:", deleteId);
+        
+        const updatedOrders = orderData.filter((order) => order.id !== deleteId);
+        setOrderData(updatedOrders);
+        setShowDeleteModal(false); 
+      } catch (error) {
+        console.error("Error deleting order:", error);
+      }
+    }
+  };
 
   const columns = [
     { key: "id", title: "ID", render: (text, record) => (
@@ -78,7 +106,10 @@ function Orders() {
           <button className="eyeButton" onClick={() => toggleVisibility(record.id)}>
             {visibleContacts[record.id] ? <FaRegEye /> : <FaRegEyeSlash />}
           </button>
-          <button className="delete-Button" onClick={() => { handleShowDeleteModal(record.id) }}>
+          <button
+            className="delete-Button"
+            onClick={() => handleShowDeleteModal(record.id)}
+          >
             <img src={icon} alt="Delete" />
           </button>
         </div>
@@ -87,18 +118,38 @@ function Orders() {
   ];
 
   const handleShowDeleteModal = (id) => {
-    setShowDeleteModal(id);
+    console.log("Show delete modal for ID:", id); 
+    setDeleteId(id); 
+    setShowDeleteModal(true); 
   };
 
   const handleCancel = () => {
+    console.log("Cancel delete modal"); 
     setShowDeleteModal(false);
+    setDeleteId(null); 
   };
 
   return (
     <div className="orders">
-      <Table columns={columns} data={ordersData} className="ordersList" />
-      {showDeleteModal && (
-        <DeleteModal onCancel={handleCancel} />
+      {loading ? ( 
+        <Loading />
+      ) : (
+        <>
+          {orderData.length > 0 ? ( 
+            <Table columns={columns} data={orderData} className="ordersList" />
+          ) : ( 
+            <p className="no-orders-message" style={{ position: "absolute",
+               color: "#C035A2", 
+              fontSize: isSmallScreen ? "17px" : "20px",
+               fontFamily: "Roboto", left: isSmallScreen ? "35%" :"55%", top: "350px"}}>No orders available</p>
+          )}
+          {showDeleteModal && (
+            <DeleteModal
+              onCancel={handleCancel}
+              deleted={deleteOrder}
+            />
+          )}
+        </>
       )}
     </div>
   );
