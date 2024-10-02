@@ -33,12 +33,6 @@ function OfferCards() {
 
   const objectWithSchema = {
     data: formData,
-    //           {
-    //   // image: "",
-    //   title: "",
-    //   description: "",
-     
-    // },
     schema: {
       // image: { type: "file", label: "Image" },
       title: { type: "text", label: "Title" },
@@ -63,28 +57,9 @@ function OfferCards() {
   const [loading, setLoading] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
-  // async function getOffers() {
-  //   const response = await axios.get(
-  //     // `https://test-foody-admin-default-rtdb.firebaseio.com/offers.json`
-  //     `https://test-foody-admin-default-rtdb.firebaseio.com/offers.json`
-  //   );
-    
-
-  //   setData(Object.entries(response.data).map(([id, offer]) => ({
-  //     id: id,
-  //     ...offer,
-  //   })));
-  //   setLoading(true)
-  // }
 
 
-  // useEffect(() => {
-  //   getOffers();
-  // }, []);
-
-
-
-  // Second option for fetching data
+  // For fetching data
 async function getOffers() {
   try {
     const response = await axios.get(
@@ -119,36 +94,6 @@ useEffect(() => {
 }, []);
 
 
-// Third option for fetching data
-// useEffect(() => {
-//   const fetchOffers = async () => {
-//     // setLoading(true);
-//     try {
-//       const fetchedData = await getOffers();
-//       console.log("Firebase Data:", data);
-      
-//       // if (fetchedData && typeof fetchedData === 'object')
-//       if(data){
-//         const formattedData = Object.entries(data).map(([id, offer]) => ({
-//           id: id,
-//           ...offer,
-//         }));
-//         console.log("Formatted Offers:", formattedData);
-//         setData(formattedData);
-//       } else {
-//         console.error("No valid data fetched");
-//       }
-//     } catch (error) {
-//       console.error("Error while fetching offers:", error);
-//     }
-//     // setLoading(false);
-//   };
-
-//   fetchOffers();
-// }, []);
-
-
-
 // for deleting product with id
 
  async function deleteOffer(){
@@ -157,16 +102,7 @@ useEffect(() => {
   await deletedOffer(deleteID)
   window.location.reload()
 
-
-  // const success = await deletedOffer(deleteID)
-  // if (success) {
-  //   setData((prevData)=> prevData.filter(res=>res.id !== deleteID))
-  // } else {
-  //   console.log("error");
-    
-  // }
-
-  }
+}
 
   const handleShowDeleteModal = (id) => {
     setDeleteID(id)
