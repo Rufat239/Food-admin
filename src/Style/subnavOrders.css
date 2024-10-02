@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+/* 
 .ordersName {
    position: absolute;
    background-color: rgb(39, 40, 60);
@@ -14,7 +14,7 @@
    width: 122px;
    height: 32px;
    margin-top: 20px;
-   margin-left: 15px;
+   margin-left: 35px;
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -45,8 +45,6 @@
 
    .orders-word {
       width: 130px;
-      height: 34px;
-      /* margin-top: 10px; */
       margin-left: 25px;
       display: flex;
       flex-direction: row;
@@ -54,4 +52,48 @@
 
    }
 
-}
+} */
+
+
+
+.ordersName {
+   width: 76%;
+   position: absolute;
+   left: 21.4%;
+   top: 12%;
+ 
+ }
+ 
+ .textOrders {
+   background-color: rgba(66, 66, 93, 0.4);
+   border-radius: 15px;
+   padding: 24px;
+   text-align: center;
+   font-family: "Roboto";
+   font-size: 1.45rem;
+   
+   color: #F2F2F2DE;
+   text-align: start;
+ }
+ 
+ .orders-word {
+   margin-bottom: 20px;
+  
+ }
+ 
+ @media only screen and (max-width:431px){
+   .ordersName{
+     width: 92%;
+     position: absolute;
+     left: 1em;
+     top: 5.2em;
+     margin-top: 41px;
+     
+   }
+ 
+   .textOrders{
+     border-radius: 6px;
+     
+   }
+   
+ }
