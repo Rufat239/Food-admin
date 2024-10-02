@@ -93,14 +93,16 @@ useEffect(()=>{
 
 
   const columns = [
-    { key: "id", title: "ID", render:(text)=>(
+    { key: "id", title: "ID", render:(text,record)=>(
       <div className="td-number">
-          <p className="list">{text}</p>
+          <p className="list">{record.id?.substring(0,4).replace(/-/g, "")}</p>
           </div>
     )},
     { key: "url", title: "Image", render: (text) => <img className="productImageCategory" src={text}  alt="" /> },
     { key: "name", title: "Name" },
-    { key: "slug", title: "Slug" },
+    { key: "slug", title: "Slug",
+      render: (text) => <div className="slugText">{text}</div>
+     },
     {
       key: "actions",
       title: "",
