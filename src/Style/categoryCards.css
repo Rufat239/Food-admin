@@ -31,7 +31,16 @@
   border-radius: 8px;
   background: rgb(255, 255, 255);
   }
-  
+  .slugText{
+    font-family: "Open Sans", sans-serif;
+  max-width: 100px;        
+  white-space: nowrap;     
+  overflow: hidden;       
+  text-overflow: ellipsis;  
+  text-align: center;      
+  margin: auto;             
+  display: block; 
+  }
   
   
   .cat-buttons {
