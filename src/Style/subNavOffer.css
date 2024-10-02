@@ -43,6 +43,7 @@
   margin-right: 1.3em;
   padding-left: 1.7em;
   box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.20);
+  transition-duration: 1s;
   /* padding-left: 30px; */
 }
 
