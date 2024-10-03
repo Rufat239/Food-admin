@@ -25,7 +25,7 @@ function Products() {
         const response = await axios.get(resturantUrl)
         const data = response.data
 
-        const types = [... new Set(Object.values(data).map((item) => item.category))]
+        const types = [... new Set(Object.values(data).map((item) => item.name))]
         setResturantTypes(types)
         console.log(types,"typedata")
       } catch (error) {
