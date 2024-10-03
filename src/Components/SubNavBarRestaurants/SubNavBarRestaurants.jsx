@@ -1,9 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Style from '../../Style/subnavrestaurants.css';
 import SideBar from '../sideBar/SideBar';
 import Form from '../form/Form';
-function SubNavBarRestaurants({ addRestaurant,onCategoryChange }) {
+import axios from 'axios';
+
+
+
+
+function SubNavBarRestaurants({ addRestaurant, onCategoryChange }) {
+
     const [showSideBar, setShowSideBar] = useState(false);
+    const [categoryType, setCategoryType] = useState([])
+
+
+
+    // FOR GET CATEGORY TYPE
+
+    useEffect(() => {
+        const getCategoryType = async () => {
+            const categoryUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/categories.json`
+
+            try {
+                const { data } = await axios.get(categoryUrl)
+                const types = Object.values(data).map((x) => x.name)
+                setCategoryType(types)
+
+            } catch (error) {
+                console.log("error")
+            }
+        }
+        getCategoryType()
+    }, [])
+
+
+
     const [formData, setFormData] = useState({
         // image: "",
         name: "",
@@ -25,28 +55,20 @@ function SubNavBarRestaurants({ addRestaurant,onCategoryChange }) {
             category: {
                 type: "select",
                 label: "Category",
-                options: [
-                    { value: "categories", content: "Categories" },
-                    { value: "Fast Food", content: "Fast Food" },
-                    { value: "Italian", content: "Italian" },
-                    { value: "Pizza", content: "Pizza" },
-                    { value: "Doner", content: "Doner" },
-                    { value: "Kebab", content: "Kebab" },
-                    { value: "Roll", content: "Roll" },
-                    { value: "Soup", content: "Soup" },
-                    { value: "Sea Food", content: "Sea Food" },
-                    { value: "Chinese", content: "Chinese" }
-                ],
+                options: categoryType.map((type) => ({
+                    value: type,
+                    content: type
+                }))
             },
         },
     };
 
     // FOR FILTERED RESTAURANT
-    const [selectedCategory,setSelectedCategory] = useState("all")
+    const [selectedCategory, setSelectedCategory] = useState("all")
     const handleCategoryChange = (e) => {
         const category = e.target.value;
         setSelectedCategory(category);
-        onCategoryChange(category); 
+        onCategoryChange(category);
     };
     const openSideBar = () => {
         setShowSideBar(true);
@@ -80,15 +102,10 @@ function SubNavBarRestaurants({ addRestaurant,onCategoryChange }) {
                     <form action="">
                         <select name="restaurants-category" className='formRestaurant' id="restaurants-category" onChange={handleCategoryChange}>
                             <option value="all">All Restaurants</option>
-                            <option value="Fast Food">Fast Food</option>
-                            <option value="Italian">Italian</option>
-                            <option value="Pizza">Pizza</option>
-                            <option value="Doner">Doner</option>
-                            <option value="Kebab">Kebab</option>
-                            <option value="Roll">Roll</option>
-                            <option value="Soup">Soup</option>
-                            <option value="Sea Food">Sea Food</option>
-                            <option value="Chinese">Chinese</option>
+                            {categoryType.map((type, index) => (
+                                <option key={index} value={type}>
+                                    {type}
+                                </option>))}
                         </select>
                         <div className="select-arrow-restaurant">&#9660;</div>
                     </form>

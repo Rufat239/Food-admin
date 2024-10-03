@@ -16,7 +16,26 @@ import { Pagination } from '@mui/material';
 function Restaurants({ restaurnats, selectedCategory }) {
     const [restaurants, setRestaurants] = useState([])
     const [restaurantID, setRestaurantID] = useState("")
-    const [loading, setLoading] = useState(false)
+    const [categoryType, setCategoryType] = useState([])
+
+
+    // FOR GET CATEGORY TYPE
+
+    useEffect(() => {
+        const getCategoryType = async () => {
+            const categoryUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/categories.json`
+
+            try {
+               const {data} = await axios.get(categoryUrl)
+               const types = Object.values(data).map((x) => x.name)
+               setCategoryType(types)
+              
+            } catch (error) {
+                console.log("error")
+            }
+        }
+
+    })
 
 
 
@@ -42,19 +61,10 @@ function Restaurants({ restaurnats, selectedCategory }) {
             category: {
                 type: "select",
                 label: "Category",
-                options: [
-                    { value: "all", content: "Categories" },
-                    { value: "Fast Food", content: "Fast Food" },
-                    { value: "Italian", content: "Italian" },
-                    { value: "Pizza", content: "Pizza" },
-                    { value: "Doner", content: "Doner" },
-                    { value: "Kebab", content: "Kebab" },
-                    { value: "Roll", content: "Roll" },
-                    { value: "Soup", content: "Soup" },
-                    { value: "Sea Food", content: "Sea Food" },
-                    { value: "Chinese", content: "Chinese" },
-                    { value: "Japanese", content: "Japanese" }
-                ],
+                options: categoryType.map((type) => ({
+                    value: type,
+                    content: type
+                }))
             },
         },
     };
@@ -78,8 +88,6 @@ function Restaurants({ restaurnats, selectedCategory }) {
                 }
             } catch (error) {
                 console.error(error);
-            } finally {
-                setLoading(true)
             }
         };
         getRestaurant();
@@ -153,7 +161,7 @@ function Restaurants({ restaurnats, selectedCategory }) {
 
     // FOR PAGINATION
     const [page, setPage] = useState(1);
-    const [itemsPerPage] = useState(8);
+    const [itemsPerPage] = useState(9);
 
     const indexOfLastRestaurant = page * itemsPerPage;
     const indexOfFirstRestaurant = indexOfLastRestaurant - itemsPerPage;
@@ -162,96 +170,93 @@ function Restaurants({ restaurnats, selectedCategory }) {
     return (
         <div className="all-restaurant-component">
             <div className="cardListRestaurant">
-                {loading ? (
-                    <>
-                        {currentRestaurants.length > 0 ? (
-                            currentRestaurants.map((restaurant) => (
-                                <div className="card-res" key={restaurant.id}>
-                                    <div className="cardsRestaurant">
-                                        <div className="cards-image">
-                                            <img src={restaurant.url} alt={restaurant.name} />
-                                        </div>
-                                        <div className="cards-info">
-                                            <h5>{restaurant.name}</h5>
-                                            <p>{restaurant.category}</p>
-                                        </div>
-                                        <div className="cards-edit">
-                                            <img
-                                                src={Editsvg}
-                                                alt="Edit"
-                                                onClick={() => {
-                                                    openSideBar(restaurant);
-                                                    setRestaurantID(restaurant.id);
-                                                }}
-                                            />
-                                            <img
-                                                src={Deletesvg}
-                                                alt="Delete"
-                                                onClick={() => handleShowDeleteModal(restaurant.id)}
-                                            />
-                                        </div>
+                <>
+                    {currentRestaurants.length > 0 ? (
+                        currentRestaurants.map((restaurant) => (
+                            <div className="card-res" key={restaurant.id}>
+                                <div className="cardsRestaurant">
+                                    <div className="cards-image">
+                                        <img src={restaurant.url} alt={restaurant.name} />
+                                    </div>
+                                    <div className="cards-info">
+                                        <h5>{restaurant.name}</h5>
+                                        <p>{restaurant.category}</p>
+                                    </div>
+                                    <div className="cards-edit">
+                                        <img
+                                            src={Editsvg}
+                                            alt="Edit"
+                                            onClick={() => {
+                                                openSideBar(restaurant);
+                                                setRestaurantID(restaurant.id);
+                                            }}
+                                        />
+                                        <img
+                                            src={Deletesvg}
+                                            alt="Delete"
+                                            onClick={() => handleShowDeleteModal(restaurant.id)}
+                                        />
                                     </div>
                                 </div>
-                            ))
-                        ) : (
-                            <p className="emptyRestaurantList">No restaurants available</p>
-                        )}
-                       
+                            </div>
+                        ))
+                    ) : (
+                        <p className="emptyRestaurantList">No restaurants available</p>
+                    )}
 
-                        <SideBar Show={showSideBar} onClose={closeSideBar}>
-                            <Form
-                                objectWithSchema={objectWithSchema}
-                                title="Edit Restaurants"
-                                subtitle="Edit your Restaurants information"
-                                onClose={closeSideBar}
-                                buttonText="Update Restaurant"
-                                uploadText="Upload your Restaurant image"
-                                isEdit={true}
-                                restaurantId={restaurantID}
-                                formType="updateRestaurant"
-                            />
-                        </SideBar>
-                        {showDeleteModal && (
-                            <DeleteModal
-                                onCancel={() => setShowDeleteModal(false)}
-                                deleted={deleteRestaurant}
-                            />
-                        )}
-                    </>
-                ) : (
-                    <Loading />
-                )}
+
+                    <SideBar Show={showSideBar} onClose={closeSideBar}>
+                        <Form
+                            objectWithSchema={objectWithSchema}
+                            title="Edit Restaurants"
+                            subtitle="Edit your Restaurants information"
+                            onClose={closeSideBar}
+                            buttonText="Update Restaurant"
+                            uploadText="Upload your Restaurant image"
+                            isEdit={true}
+                            restaurantId={restaurantID}
+                            formType="updateRestaurant"
+                        />
+                    </SideBar>
+                    {showDeleteModal && (
+                        <DeleteModal
+                            onCancel={() => setShowDeleteModal(false)}
+                            deleted={deleteRestaurant}
+                        />
+                    )}
+                </>
+
             </div>
             <div className='pagination-container'>
-            <Pagination
-                            className='pagination-restaurant'
-                            count={Math.ceil(filteredRestaurants.length / itemsPerPage)}
-                            page={page}
-                            onChange={(event, value) => setPage(value)}
-                            variant="outlined" color="secondary"
-                            sx={{
-                                '& .MuiPaginationItem-root': {
-                                    minWidth: '48px', 
-                                    minHeight: '48px', 
-                                    fontSize: '14px', 
-                                    color: '#FFF',
-                                    borderRadius: "50%",
-                                    border: ' 1px solid #EC5CF8',
-                                    '&:hover': {
-                                        backgroundColor: '#EC5CF8',
-                                    },
-                                },
-                                '& .MuiPaginationItem-previousNext': {
-                                    transition: 'background-color 0.3s ease', 
-                                    '&:hover': {
-                                        backgroundColor: 'rgba(236, 92, 248, 1)', 
-                                    },
-                                }
-                        
-                             
-    
-                            }}
-                        />
+                <Pagination
+                    className='pagination-restaurant'
+                    count={Math.ceil(filteredRestaurants.length / itemsPerPage)}
+                    page={page}
+                    onChange={(event, value) => setPage(value)}
+                    variant="outlined" color="secondary"
+                    sx={{
+                        '& .MuiPaginationItem-root': {
+                            minWidth: '48px',
+                            minHeight: '48px',
+                            fontSize: '14px',
+                            color: '#FFF',
+                            borderRadius: "50%",
+                            border: ' 1px solid #EC5CF8',
+                            '&:hover': {
+                                backgroundColor: '#EC5CF8',
+                            },
+                        },
+                        '& .MuiPaginationItem-previousNext': {
+                            transition: 'background-color 0.3s ease',
+                            '&:hover': {
+                                backgroundColor: 'rgba(236, 92, 248, 1)',
+                            },
+                        }
+
+
+
+                    }}
+                />
             </div>
         </div>
     );
