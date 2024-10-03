@@ -25,7 +25,7 @@
     box-sizing: border-box;
     border: 1px solid rgb(223, 226, 233);
     border-radius: 8px;
-    background: rgb(255, 255, 255);
+    background-color: inherit;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -61,7 +61,7 @@
 
  .orders-buttons{
    width: 60px;
-   background: rgb(255, 255, 255);
+   background-color: inherit;
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
@@ -74,14 +74,14 @@
     width: 27px;
     height: 25px;
     border: none;
-    background: rgb(255, 255, 255);
+    background-color: inherit;
 
  }
  .delete-Button{
     width: 14px;
     height: 28px;
     border: none;
-    background: rgb(255, 255, 255);
+    background-color: inherit;
  }
 
  .orders-contact {
