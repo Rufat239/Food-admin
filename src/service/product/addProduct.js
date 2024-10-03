@@ -1,7 +1,9 @@
 import axios from "axios";
 
+
 const addProductToFirebase = async (
   productData = {
+    id: "",
     title: "",
     description: "",
     price: "",
@@ -25,6 +27,7 @@ const addProductToFirebase = async (
       }
     );
     const product = {
+      id:productData.id,
       name: productData.name,
       description: productData.description,
       price: productData.price,

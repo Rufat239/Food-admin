@@ -1,25 +1,24 @@
 .all {
-  width: 78%;
+  width: 76%;
   position: absolute;
   top: 90px;
-  left: 20%;
+  left: 22%;
 }
 .filterLine {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 70px;
   padding: 0px 33px;
   border-radius: 14px;
   background: #27283c;
 }
 .filterLine p {
-  color: #c7c7c7;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 120% */
-  letter-spacing: 0.2px;
+  font-size: 1.45rem;
+  color: #F2F2F2DE;
+  line-height: 21px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .filterLine .filterActions {
@@ -37,37 +36,28 @@
   font-weight: 500;
   letter-spacing: 0.1px;
 }
-.filterLine .filterActions button {
-  border-radius: 14px;
-  border: 2px solid #c035a2;
-  background: #c035a2;
-  box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
-  color: #fff;
-  text-align: center;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px; /* 210% */
-  letter-spacing: 0.25px;
-}
+
 
 .products {
-  margin-top: 52px;
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 30px;
+  /* justify-content: space-between; */
 }
 .productCard {
-  width: 15%;
+  width: 13%;
   border-radius: 5px;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(57, 57, 57, 0.25);
-  padding: 15px 16px;
+  padding: 15px 16px 0 ;
 }
+
+
+
 .productCard img {
   width: 100%;
-  height: 200px;
+  height: 150px;
   margin: auto;
 }
 .productCard h2 {
