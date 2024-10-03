@@ -129,32 +129,32 @@ function Form({
       fetchRestaurantData();
     }
 
-    // Product
+    // PRODUCT
     else if (formType === "addProductToFirebase") {
       setFormData({
         id: v4().replace(/-/g, ""),
         name: "",
         description: "",
         price: "",
-        category: "",
-        url: "",
+        restaurant: "",
+        imageUrl: "",
       });
       setPreviewImage("");
-    } else if (isEdit && productId && formType === "updateProduct") {
+    } else if (isEdit && productId && formType === "updateProductInFirebase") {
         const fetchProductData = async () => {
         try {
           const response = await axios.get(
-            `https://test-foody-admin-default-rtdb.firebaseio.com/restaurants/${productId}.json`
+            `https://test-foody-admin-default-rtdb.firebaseio.com/products/${productId}.json`
           );
           if (response.data) {
             setFormData({
               name: response.data.name || "",
               description: response.data.description || "",
               price: response.data.price || "",
-              category: response.data.category || "",
-              url: response.data.url || "",
+              restaurant: response.data.restaurant || "",
+              imageUrl: response.data.imageUrl || "",
             });
-            setPreviewImage(response.data.url || "");
+            setPreviewImage(response.data.imageUrl || "");
           }
         } catch (error) {
           console.error("Error occurs when fecth restaurant:", error);
@@ -190,7 +190,7 @@ function Form({
       // Product
       else if (formType === "addProductToFirebase") {
         await addProductToFirebase(formData);
-      }else if (isEdit && formType === "updateProduct") {
+      }else if (isEdit && formType === "updateProductInFirebase") {
         await updateProductInFirebase(productId,formData)
       }
       onClose(); // ve bunu elave etdim
