@@ -3,11 +3,97 @@ import styles from "../../Style/product.module.css";
 import { Modal, Box, Button, Typography } from "@mui/material";
 import getProducts from "../../service/product/getAllProducts";
 import deleteProduct from "../../service/product/deleteProduct";
+import SideBar from "../sideBar/SideBar";
+import Form from "../form/Form";
+import axios from "axios";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState(null);
+  const [productID, setProductID] = useState("")
+  const [resturantTypes,setResturantTypes] = useState([])
+
+
+  // GET RESTAURANT TYPE
+
+  useEffect(() => {
+    const getRestaurantType = async () => {
+      const resturantUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/restaurants.json`
+
+      try {
+        const response = await axios.get(resturantUrl)
+        const data = response.data
+
+        const types = [... new Set(Object.values(data).map((item) => item.category))]
+        setResturantTypes(types)
+        console.log(types,"typedata")
+      } catch (error) {
+        console.log("error")
+      }
+    }
+
+    getRestaurantType()
+  },[])
+
+
+
+
+  // FOR EDIT
+
+  const [formData, setFormData] = useState({
+    // image: "",
+    name: "",
+    description: "",
+    price: "",
+    category: "",
+  });
+  const objectWithSchema = {
+    data: formData,
+    schema: {
+      // image: { type: "text", label: "Image" },
+      name: { type: "text", label: "Name" },
+      description: { type: "textarea", label: "Description" },
+      price: { type: "text", label: "Price" },
+      category: {
+        type: "select",
+        label: "Restaurant Type",
+        options: resturantTypes.map((type) => ({
+          value: type,
+          content:type
+        }))
+      },
+    },
+  };
+
+
+
+  const [selectedProduct, setSelectedProduct] = useState(null)
+  const openSideBar = (product) => {
+    setSelectedProduct(product);
+    setFormData({
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      category: product.category,
+      image: product.url || "",
+    });
+    setShowSideBar(true);
+    document.body.style.overflow = "hidden";
+  }
+
+
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  const closeSideBar = () => {
+    setShowSideBar(false);
+    document.body.style.overflow = "auto";
+  };
+
+  ////////////
+
+
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -46,9 +132,10 @@ function Products() {
         <div className={styles.filterActions}>
           <select name="" id="">
             <option value="Restaurant type">Restaurant type</option>
-            <option value="Category type">Category type</option>
+            {resturantTypes.map((type,index) => (
+              <option key={index} value={type}>{type}</option>
+            ))}
           </select>
-          <button>Search</button>
         </div>
       </div>
 
@@ -64,7 +151,10 @@ function Products() {
                   <span>{product.price}</span>$
                 </p>
                 <div>
-                  <span className={styles.editBtn}>
+                  <span className={styles.editBtn} onClick={() => {
+                    openSideBar(product);
+                    setProductID(product.id);
+                  }}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -107,7 +197,7 @@ function Products() {
                           />
                         </clipPath>
                       </defs>
-                       
+
                     </svg>
                   </span>
                 </div>
@@ -117,6 +207,20 @@ function Products() {
         ) : (
           <p>No products available.</p>
         )}
+
+        <SideBar Show={showSideBar} onClose={closeSideBar}>
+          <Form
+            objectWithSchema={objectWithSchema}
+            title="Edit Products"
+            subtitle="Edit your Products information"
+            onClose={closeSideBar}
+            page="Update Product"
+            uploadText="Upload your Product image"
+            isEdit={true}
+            productId={productID}
+            formType="updateProduct"
+          />
+        </SideBar>
       </div>
 
       <Modal
