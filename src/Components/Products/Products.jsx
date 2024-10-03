@@ -67,6 +67,8 @@ function Products() {
   };
 
 
+  console.log(products,"product")
+
 
   const [selectedProduct, setSelectedProduct] = useState(null)
   const openSideBar = (product) => {
@@ -75,7 +77,7 @@ function Products() {
       name: product.name,
       description: product.description,
       price: product.price,
-      category: product.category,
+      restaurant: product.restaurant || "",
       image: product.url || "",
     });
     setShowSideBar(true);
@@ -145,7 +147,7 @@ function Products() {
             <div key={product.id} className={styles.productCard}>
               <img src={product.imageUrl} alt={product.title} />
               <h2>{product.name}</h2>
-              <p>{product.restaurant}</p>
+              <p>{product.restaurant || "Unknown Restaurant"}</p>
               <div className={styles.productActions}>
                 <p>
                   <span>{product.price}</span>$
