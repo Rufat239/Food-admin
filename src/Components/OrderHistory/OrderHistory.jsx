@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../Style/orderHistory.css";
 import ReusableTable from "../Reusable/Table.jsx";
 import axios from "axios";
+import Loading from "../Loading/Loading.jsx";
 
 
 function OrderHistory() {
 
 
   const [ordersData,setOrdersData]= useState([])
+  const [loading,setLoading] = useState(true)
 
 useEffect(() => {
   const getOrderHistoryDatas =async() => {
@@ -20,6 +22,8 @@ useEffect(() => {
       
     } catch (error) {
       console.log("error")
+    }finally{
+      setLoading(false)
     }
   }
   getOrderHistoryDatas()
@@ -56,11 +60,15 @@ useEffect(() => {
 
   return (
     <div className="containerHistory">
+      {loading ? (
+        <Loading/>
+      ) : (
       <ReusableTable
         columns={columns}
         data={ordersData}
         className="orderHistoryTable"
       />
+    )}
     </div>
   );
 }
