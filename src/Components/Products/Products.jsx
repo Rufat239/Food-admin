@@ -46,7 +46,7 @@ function Products() {
     name: "",
     description: "",
     price: "",
-    category: "",
+    restaurant: "",
   });
   const objectWithSchema = {
     data: formData,
@@ -73,13 +73,7 @@ function Products() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const openSideBar = (product) => {
     setSelectedProduct(product);
-    setFormData({
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      restaurant: product.restaurant || "",
-      image: product.url || "",
-    });
+  
     setShowSideBar(true);
     document.body.style.overflow = "hidden";
   }

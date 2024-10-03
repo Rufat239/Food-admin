@@ -31,7 +31,7 @@ const addProductToFirebase = async (
       name: productData.name,
       description: productData.description,
       price: productData.price,
-      restaurant: productData.restaurant,
+      restaurant: productData.restaurant || "Unknown Restaurant",
       imageUrl: `https://firebasestorage.googleapis.com/v0/b/${projectID}.appspot.com/o/${storageFolderName}%2F${pictureName}.png?alt=media&token=${
         data.downloadTokens || ""
       }`,
