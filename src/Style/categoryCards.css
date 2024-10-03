@@ -29,7 +29,7 @@
   box-sizing: border-box;
   border: 1px solid rgb(223, 226, 233);
   border-radius: 8px;
-  background: rgb(255, 255, 255);
+  background-color: inherit;
   }
   .slugText{
     font-family: "Open Sans", sans-serif;
@@ -65,7 +65,7 @@
   }
   .editButton{
     border: none;
-    background: white;
+    background-color: inherit;
     cursor: pointer;
   }
   .deleteButton img {
