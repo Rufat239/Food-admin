@@ -112,13 +112,12 @@ function Restaurants({ restaurnats, selectedCategory }) {
     const openSideBar = (restaurant) => {
         setSelectedRestaurant(restaurant);
         setFormData({
-            name: restaurant.name,
-            cuisine: restaurant.cuisine,
-            deliveryPrice: restaurant.deliveryPrice,
-            deliveryMin: restaurant.deliveryMin,
-            address: restaurant.address,
-            category: restaurant.category,
-            image: restaurant.url || "",
+            name: restaurant.name || "",
+            cuisine: restaurant.cuisine || "",
+            deliveryPrice: restaurant.deliveryPrice || "",
+            deliveryMin: restaurant.deliveryMin || "",
+            address: restaurant.address || "",
+            category: restaurant.category || "",  // Mevcut kategori seçili hale getirilecek
         });
         setShowSideBar(true);
         document.body.style.overflow = "hidden";
@@ -211,7 +210,7 @@ function Restaurants({ restaurnats, selectedCategory }) {
                             title="Edit Restaurants"
                             subtitle="Edit your Restaurants information"
                             onClose={closeSideBar}
-                            buttonText="Update Restaurant"
+                            page="Update Restaurant"
                             uploadText="Upload your Restaurant image"
                             isEdit={true}
                             restaurantId={restaurantID}

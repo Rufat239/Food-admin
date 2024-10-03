@@ -119,7 +119,7 @@ function SubNavBarRestaurants({ addRestaurant, onCategoryChange }) {
                             onSubmit={handleFormSubmit}
                             onKeyPress={handleKeyPress}
                             formType="postRestaurant"
-                            buttonText="Create Restaurant"
+                            page="Create Restaurant"
                         />
                     </SideBar>
                 </div>
