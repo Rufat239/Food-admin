@@ -37,6 +37,9 @@ const addProductToFirebase = async (
       }`,
     };
 
+
+    console.log(productData, "productData")
+
     await axios.post(
       `https://${projectID}-default-rtdb.firebaseio.com/${dbCollectionName}.json`,
       product
