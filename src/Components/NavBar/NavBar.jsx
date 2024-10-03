@@ -10,13 +10,15 @@ import imageHistory_offer from "../../NavbarImages/imageHistory_offer.png";
 import imageLogout from "../../NavbarImages/imageLogout.png";
 import imageHamburger from "../../NavbarImages/imageHamburger.png";
 import backNav from "../../NavbarImages/backNav.png";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import SideBar from "../sideBar/SideBar";
 import Form from "../form/Form";
 import zIndex from "@mui/material/styles/zIndex";
 import { borderRadius, display, margin } from "@mui/system";
 
 function NavBar() {
+ const location = useLocation()
+
   const [showSideBar, setShowSideBar] = useState(false);
 
   const [hamburgerMenuStyle, setHamburgerMenuStyle] = useState({});
@@ -118,48 +120,69 @@ function NavBar() {
         </div>
         <ul className="listNav">
           <li>
-            <Link className="navLink" to="/dashboardPage">
+          <Link
+              className={`navLink ${location.pathname === "/dashboardPage" ? "activeLink" : ""}`}
+              to="/dashboardPage"
+            >
               <img src={imageDashboard} alt="" />
               Dashboard
             </Link>
           </li>
 
           <li>
-            <Link className="navLink" to="/productPage">
+          <Link
+              className={`navLink ${location.pathname === "/productPage" ? "activeLink" : ""}`}
+              to="/productPage"
+            >
               <img src={imageProducts} alt="" />
               Products
             </Link>
           </li>
           <li>
-            <Link className="navLink" to="/restaurantsPage">
+          <Link
+              className={`navLink ${location.pathname === "/restaurantsPage" ? "activeLink" : ""}`}
+              to="/restaurantsPage"
+            >
               <img src={imageRestaurants} alt="" />
               Restaurants
             </Link>
           </li>
 
           <li>
-            <Link className="navLink" to="/categoryPage">
+          <Link
+              className={`navLink ${location.pathname === "/categoryPage" ? "activeLink" : ""}`}
+              to="/categoryPage"
+            >
               <img src={imageCategory} alt="" />
               Category
             </Link>
           </li>
 
           <li>
-            <Link className="navLink" to="/ordersPage">
+          <Link
+              className={`navLink ${location.pathname === "/ordersPage" ? "activeLink" : ""}`}
+              to="/ordersPage"
+            >
               <img src={imageOrders} alt="" />
               Orders
             </Link>
           </li>
 
           <li>
-            <Link className="navLink" to="/orderHistoryPage">
+          <Link
+              className={`navLink ${location.pathname === "/orderHistoryPage" ? "activeLink" : ""}`}
+              to="/orderHistoryPage"
+            >
               <img src={imageHistory_offer} alt="" />
               History
             </Link>
           </li>
 
           <li>
-            <Link className="navLink" to="/offerPage">
+          <Link
+              className={`navLink ${location.pathname === "/offerPage" ? "activeLink" : ""}`}
+              to="/offerPage"
+            >
               <img src={imageHistory_offer} alt="" />
               Offer
             </Link>

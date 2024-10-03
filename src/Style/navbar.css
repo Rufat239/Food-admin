@@ -97,12 +97,16 @@
 }
 
 .backNavBtn {
-  background-color: #c035a2;
+  background-color: #C74FEB;
+  border: none;
+  font-size: 18px;
   margin-right: 2%;
   margin-left: 4%;
   display: flex;
+  align-items: center;
   margin-top: 20px;
 }
+
 
 .imgAdmin {
   width: 27%;
@@ -121,10 +125,9 @@
 }
 
 .listNav li {
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   list-style: none;
 }
-
 .navLink {
   text-decoration: none;
   color: white;
@@ -133,6 +136,29 @@
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
+  padding: 10px; 
+  width: 160px; 
+  border-radius: 4px; 
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+.navLink:hover {
+  background-color: rgba(243, 220, 238, 0.2); 
+  color: #ffffff; 
+  transform: scale(1.02); 
+}
+
+.navLink.activeLink {
+  background-color: rgba(114, 13, 145, 0.1); 
+  color: #ffffff; 
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+  transform: scale(1.02); 
+}
+
+.navLink.activeLink:hover {
+  background-color: rgba(114, 13, 145, 0.1); 
+  color: #ffffff; 
+  transform: scale(1.02); 
 }
 
 .navLink img {
