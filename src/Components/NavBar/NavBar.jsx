@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../Style/navbar.css";
 import imageAdmin from "../../NavbarImages/imageAdmin.png";
 import imageDashboard from "../../NavbarImages/imageDashboard.png";
@@ -15,14 +15,28 @@ import SideBar from "../sideBar/SideBar";
 import Form from "../form/Form";
 import zIndex from "@mui/material/styles/zIndex";
 import { borderRadius, display, margin } from "@mui/system";
-
+import axios from "axios";
 function NavBar() {
  const location = useLocation()
-
   const [showSideBar, setShowSideBar] = useState(false);
-
   const [hamburgerMenuStyle, setHamburgerMenuStyle] = useState({});
-
+  //GET RESTAURANT TYPES FOR ADDPRODUCT SELECT OPTIONS
+  const [resturantTypes,setResturantTypes] = useState([])
+  useEffect(() => {
+    const getRestaurantType = async () => {
+      const resturantUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/restaurants.json`
+      try {
+        const response = await axios.get(resturantUrl)
+        const data = response.data
+        const types = [... new Set(Object.values(data).map((item) => item.category))]
+        setResturantTypes(types)
+        console.log(types,"typedata")
+      } catch (error) {
+        console.log("error")
+      }
+    }
+    getRestaurantType()
+  },[])
   const objectWithSchema = {
     data: {
       image: "",
@@ -39,24 +53,21 @@ function NavBar() {
       restaurants: {
         type: "select",
         label: "Restaurants",
-        options: [
-          { value: "fastFood", content: "Papa John's" },
-          { value: "italian", content: "Italian" },
-        ],
+        options: resturantTypes.map((type) => ({
+          value: type,
+          content:type
+        }))
       },
     },
   };
-
   const openSideBar = () => {
     setShowSideBar(true);
     document.body.style.overflow = "hidden";
   };
-
   const closeSideBar = () => {
     setShowSideBar(false);
     document.body.style.overflow = "auto";
   };
-
   const openHamburgerMenu = () => {
     setHamburgerMenuStyle({
       display: "block",
@@ -70,13 +81,11 @@ function NavBar() {
       borderRadius: 0,
     });
   };
-
   const closeHamburgerMenu = () => {
     setHamburgerMenuStyle({
       display: "none",
     });
   };
-
   return (
     <>
       <div className="navHead">
@@ -86,7 +95,6 @@ function NavBar() {
           </button>
           <h1 className="headTxt">Foody</h1>
         </div>
-
         <div className="navBtns">
           <button className="addProductBtn" onClick={openSideBar}>
            <span  className="addProductBtnSpan">+</span>
@@ -110,7 +118,6 @@ function NavBar() {
           </div>
         </div>
       </div>
-
       <div className="nav" style={hamburgerMenuStyle}>
         <div className="backNavTxt">
           <button className="backNavBtn" onClick={() => closeHamburgerMenu()}>
@@ -128,7 +135,6 @@ function NavBar() {
               Dashboard
             </Link>
           </li>
-
           <li>
           <Link
               className={`navLink ${location.pathname === "/productPage" ? "activeLink" : ""}`}
@@ -147,7 +153,6 @@ function NavBar() {
               Restaurants
             </Link>
           </li>
-
           <li>
           <Link
               className={`navLink ${location.pathname === "/categoryPage" ? "activeLink" : ""}`}
@@ -157,7 +162,6 @@ function NavBar() {
               Category
             </Link>
           </li>
-
           <li>
           <Link
               className={`navLink ${location.pathname === "/ordersPage" ? "activeLink" : ""}`}
@@ -167,7 +171,6 @@ function NavBar() {
               Orders
             </Link>
           </li>
-
           <li>
           <Link
               className={`navLink ${location.pathname === "/orderHistoryPage" ? "activeLink" : ""}`}
@@ -177,7 +180,6 @@ function NavBar() {
               History
             </Link>
           </li>
-
           <li>
           <Link
               className={`navLink ${location.pathname === "/offerPage" ? "activeLink" : ""}`}
@@ -187,7 +189,6 @@ function NavBar() {
               Offer
             </Link>
           </li>
-
           <li>
             <Link className="navLink" to="/">
               <img src={imageLogout} alt="" />
@@ -199,5 +200,10 @@ function NavBar() {
     </>
   );
 }
-
 export default NavBar;
+
+
+
+
+
+
