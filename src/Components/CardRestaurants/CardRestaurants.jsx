@@ -111,14 +111,6 @@ function Restaurants({ restaurnats, selectedCategory }) {
     const [selectedRestaurant, setSelectedRestaurant] = useState(null)
     const openSideBar = (restaurant) => {
         setSelectedRestaurant(restaurant);
-        setFormData({
-            name: restaurant.name || "",
-            cuisine: restaurant.cuisine || "",
-            deliveryPrice: restaurant.deliveryPrice || "",
-            deliveryMin: restaurant.deliveryMin || "",
-            address: restaurant.address || "",
-            category: restaurant.category || "",  // Mevcut kategori seçili hale getirilecek
-        });
         setShowSideBar(true);
         document.body.style.overflow = "hidden";
     }
