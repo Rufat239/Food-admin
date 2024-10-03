@@ -1,15 +1,11 @@
 .offerIdContainer {
-  /* text-align: center; */
   display: flex;
   align-items: center;
-  /* width: 100%; */
   width: 3.5em;
   height: 1.6em;
   border: 1px solid #dfe2e9;
   border-radius: 10px;
   justify-content: center;
-  /* transform: translateX(2.5em) !important; */
-  /* margin-left: 4em; */
   margin: auto !important;
 }
 .offerId {
@@ -26,17 +22,7 @@
 .offerList td {
   text-align: center;
   vertical-align: middle;
-
 }
-
-/* .offerList td {
-  display: flex;                
-  justify-content: center;      
-  align-items: center;           
-  height: 3em;                   
-  overflow: hidden;              
-} */
-
 .productImageOffer {
   width: 3em;
   height: 3em;
@@ -45,12 +31,12 @@
 .question,
 .feedback {
   font-family: "Open Sans", sans-serif;
-  max-width: 200px;         /* Maksimum genişlik */
-  white-space: nowrap;      /* Tek satırda kal */
-  overflow: hidden;         /* Taşan içeriği gizle */
-  text-overflow: ellipsis;  /* Taşan metni "..." ile göster */
-  text-align: center;       /* Metni ortala */
-  margin: auto;             /* Yatayda otomatik merkezle */
+  max-width: 200px;        
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis; 
+  text-align: center;      
+  margin: auto;            
   display: block; 
 }
 .idContainer {
