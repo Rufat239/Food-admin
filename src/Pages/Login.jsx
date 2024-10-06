@@ -1,29 +1,84 @@
 import React, { useState } from "react";
 import "../Style/Login.css";
 import photo from "../assets/loginImages/login-illustration.svg";
-import photoRes from "../assets/loginImages/Group 240.png"
+import photoRes from "../assets/loginImages/Group 240.png";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Firebase/firebaseConfig";
+import axios from "axios"; 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    const allowedEmails = [
+      "garavaliyevrasul531@gmail.com",
+      "zibeydeceferli@gmail.com",
+      "nazifagojayeva@gmail.com",
+    ];
+
+    
+    if (!allowedEmails.includes(email)) {
+      setError("Login is not allowed for this email!");
+      toast.error("Login is not allowed for this email!");
+      return;
+    }
+
+    const apiKey = "AIzaSyAyG34t6yFnMuYrg1IkTGR0HQUugxr6zco"; 
+    const loginUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`;
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const response = await axios.post(loginUrl, {
+        email,
+        password,
+        returnSecureToken: true,
+      });
+
+      
+      let fullName = "Admin"; 
+      if (email === "garavaliyevrasul531@gmail.com") {
+        fullName = "Rasul";
+      } else if (email === "zibeydeceferli@gmail.com") {
+        fullName = "Zibeydə";
+      } else if (email === "nazifagojayeva@gmail.com") {
+        fullName = "Nazifa";
+      }
+
+      
       toast.success("Login successful!", {
         onClose: () => navigate("/dashboardPage"),
       });
+
+      
+      localStorage.setItem("fullName", fullName);
+      localStorage.setItem("token", response.data.idToken);
+
     } catch (error) {
-      toast.error("Your password or email is incorrect!");
-      setError("Your password or email is incorrect!");
+      if (error.response && error.response.data && error.response.data.error) {
+        const errorCode = error.response.data.error.message;
+        switch (errorCode) {
+          case "EMAIL_NOT_FOUND":
+          case "INVALID_PASSWORD":
+            setError("Incorrect email or password!");
+            toast.error("Incorrect email or password!");
+            break;
+          case "USER_DISABLED":
+            setError("Your account has been disabled.");
+            toast.error("Your account has been disabled.");
+            break;
+          default:
+            setError("An error occurred. Please try again.");
+            toast.error("An error occurred. Please try again.");
+        }
+      } else {
+        setError("An error occurred. Please try again.");
+        toast.error("An error occurred. Please try again.");
+      }
     }
   };
 
@@ -56,9 +111,9 @@ const Login = () => {
               />
             </div>
             <div>
-            <button type="submit" className="login-button">
-              Sign In
-            </button>
+              <button type="submit" className="login-button">
+                Sign In
+              </button>
             </div>
             {error && <p className="error">{error}</p>}
           </form>
