@@ -54,14 +54,14 @@ function NavBar() {
       name: "",
       description: "",
       price: "",
-      restaurants: "",
+      restaurant: "",
     },
     schema: {
       image: { type: "text", label: "Image" },
       name: { type: "text", label: "Name" },
       description: { type: "textarea", label: "Description" },
       price: { type: "number", label: "Price" },
-      restaurants: {
+      restaurant: {
         type: "select",
         label: "Restaurants",
         options: resturantTypes.map((type) => ({
