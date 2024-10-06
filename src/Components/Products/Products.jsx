@@ -6,6 +6,7 @@ import deleteProduct from "../../service/product/deleteProduct";
 import SideBar from "../sideBar/SideBar";
 import Form from "../form/Form";
 import axios from "axios";
+import Loading from "../Loading/Loading";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,7 @@ function Products() {
   const [productToDelete, setProductToDelete] = useState(null);
   const [productID, setProductID] = useState("")
   const [resturantTypes,setResturantTypes] = useState([])
+  const [loading, setLoading] = useState(false)
 
 
   // GET RESTAURANT TYPE
@@ -123,6 +125,8 @@ function Products() {
 
   return (
     <div className={styles.all}>
+   
+    
       <div className={styles.filterLine}>
         <p>Products</p>
         <div className={styles.filterActions}>
@@ -201,8 +205,10 @@ function Products() {
             </div>
           ))
         ) : (
-          <p>No products available.</p>
+          <p className={styles.noProduct}>No products available.</p>
         )}
+       
+   
 
         <SideBar Show={showSideBar} onClose={closeSideBar}>
           <Form
