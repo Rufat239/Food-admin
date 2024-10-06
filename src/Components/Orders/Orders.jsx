@@ -51,7 +51,7 @@ function Orders() {
 
   // Hide digits in contact number
   const hideContactNum = (num) => {
-    return num.replace(/\d/g, "*");
+    return num.replace(/[\d+]/g, "*");
   };
 
   // Function to delete the specific order by ID
