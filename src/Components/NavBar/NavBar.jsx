@@ -13,30 +13,41 @@ import backNav from "../../NavbarImages/backNav.png";
 import { useLocation, Link } from "react-router-dom";
 import SideBar from "../sideBar/SideBar";
 import Form from "../form/Form";
-import zIndex from "@mui/material/styles/zIndex";
-import { borderRadius, display, margin } from "@mui/system";
 import axios from "axios";
+
 function NavBar() {
- const location = useLocation()
+  const location = useLocation();
   const [showSideBar, setShowSideBar] = useState(false);
   const [hamburgerMenuStyle, setHamburgerMenuStyle] = useState({});
-  //GET RESTAURANT TYPES FOR ADDPRODUCT SELECT OPTIONS
-  const [resturantTypes,setResturantTypes] = useState([])
+  const [fullName, setFullName] = useState("Admin"); // Default olaraq "Admin" göstərilir
+
+  // GET RESTAURANT TYPES FOR ADDPRODUCT SELECT OPTIONS
+  const [resturantTypes, setResturantTypes] = useState([]);
+
   useEffect(() => {
     const getRestaurantType = async () => {
-      const resturantUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/restaurants.json`
+      const resturantUrl = `https://test-foody-admin-default-rtdb.firebaseio.com/restaurants.json`;
       try {
-        const response = await axios.get(resturantUrl)
-        const data = response.data
-        const types = [... new Set(Object.values(data).map((item) => item.name))]
-        setResturantTypes(types)
-        console.log(types,"typedata")
+        const response = await axios.get(resturantUrl);
+        const data = response.data;
+        const types = [...new Set(Object.values(data).map((item) => item.name))];
+        setResturantTypes(types);
+        console.log(types, "typedata");
       } catch (error) {
-        console.log("error")
+        console.log("error");
       }
+    };
+    getRestaurantType();
+  }, []);
+
+  // localStorage-dan tam adı oxumaq üçün useEffect
+  useEffect(() => {
+    const storedFullName = localStorage.getItem("fullName");
+    if (storedFullName) {
+      setFullName(storedFullName);
     }
-    getRestaurantType()
-  },[])
+  }, []);
+
   const objectWithSchema = {
     data: {
       image: "",
@@ -55,19 +66,22 @@ function NavBar() {
         label: "Restaurants",
         options: resturantTypes.map((type) => ({
           value: type,
-          content:type
-        }))
+          content: type,
+        })),
       },
     },
   };
+
   const openSideBar = () => {
     setShowSideBar(true);
     document.body.style.overflow = "hidden";
   };
+
   const closeSideBar = () => {
     setShowSideBar(false);
     document.body.style.overflow = "auto";
   };
+
   const openHamburgerMenu = () => {
     setHamburgerMenuStyle({
       display: "block",
@@ -81,117 +95,118 @@ function NavBar() {
       borderRadius: 0,
     });
   };
+
   const closeHamburgerMenu = () => {
     setHamburgerMenuStyle({
       display: "none",
     });
   };
+
   return (
     <>
       <div className="navHead">
         <div className="hamburgText">
           <button className="hamburgBtn" onClick={() => openHamburgerMenu()}>
-            <img src={imageHamburger} alt="" />
+            <img src={imageHamburger} alt="Hamburger Menu" />
           </button>
           <h1 className="headTxt">Foody</h1>
         </div>
         <div className="navBtns">
           <button className="addProductBtn" onClick={openSideBar}>
-           <span  className="addProductBtnSpan">+</span>
-           <span className="addBtnTxt">ADD PRODUCT</span>
+            <span className="addProductBtnSpan">+</span>
+            <span className="addBtnTxt">ADD PRODUCT</span>
           </button>
           <SideBar Show={showSideBar} onClose={closeSideBar}>
             <Form
               objectWithSchema={objectWithSchema}
               title="Add Product"
-              upload = "your product"
+              upload="your product"
               subtitle="Add your Product description and necessary information"
-              page= "Create Product"
-              formType= "addProductToFirebase"
+              page="Create Product"
+              formType="addProductToFirebase"
               onClose={closeSideBar}
             />
           </SideBar>
-          {/* <button className="btnLang">LANG</button> */}
           <div className="imgAdmin">
-            <img src={imageAdmin} />
-            <span className="nameAdmin">Admin</span>
+            <img src={imageAdmin} alt="Admin" />
+            <span className="nameAdmin">{fullName}</span> {/* Tam adı göstəririk */}
           </div>
         </div>
       </div>
       <div className="nav" style={hamburgerMenuStyle}>
         <div className="backNavTxt">
           <button className="backNavBtn" onClick={() => closeHamburgerMenu()}>
-            <img src={backNav} alt="" />
+            <img src={backNav} alt="Back Navigation" />
             <h2>Foody</h2>
           </button>
         </div>
         <ul className="listNav">
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/dashboardPage" ? "activeLink" : ""}`}
               to="/dashboardPage"
             >
-              <img src={imageDashboard} alt="" />
+              <img src={imageDashboard} alt="Dashboard" />
               Dashboard
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/productPage" ? "activeLink" : ""}`}
               to="/productPage"
             >
-              <img src={imageProducts} alt="" />
+              <img src={imageProducts} alt="Products" />
               Products
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/restaurantsPage" ? "activeLink" : ""}`}
               to="/restaurantsPage"
             >
-              <img src={imageRestaurants} alt="" />
+              <img src={imageRestaurants} alt="Restaurants" />
               Restaurants
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/categoryPage" ? "activeLink" : ""}`}
               to="/categoryPage"
             >
-              <img src={imageCategory} alt="" />
+              <img src={imageCategory} alt="Category" />
               Category
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/ordersPage" ? "activeLink" : ""}`}
               to="/ordersPage"
             >
-              <img src={imageOrders} alt="" />
+              <img src={imageOrders} alt="Orders" />
               Orders
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/orderHistoryPage" ? "activeLink" : ""}`}
               to="/orderHistoryPage"
             >
-              <img src={imageHistory_offer} alt="" />
+              <img src={imageHistory_offer} alt="Order History" />
               History
             </Link>
           </li>
           <li>
-          <Link
+            <Link
               className={`navLink ${location.pathname === "/offerPage" ? "activeLink" : ""}`}
               to="/offerPage"
             >
-              <img src={imageHistory_offer} alt="" />
+              <img src={imageHistory_offer} alt="Offers" />
               Offer
             </Link>
           </li>
           <li>
             <Link className="navLink" to="/">
-              <img src={imageLogout} alt="" />
+              <img src={imageLogout} alt="Logout" />
               Logout
             </Link>
           </li>
@@ -200,10 +215,5 @@ function NavBar() {
     </>
   );
 }
+
 export default NavBar;
-
-
-
-
-
-
