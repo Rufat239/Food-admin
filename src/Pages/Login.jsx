@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "../Style/Login.css";
+import rasul from '../assets/pictures/imageRasul.jpg';
+import zibeyde from '../assets/pictures/imageZibeyde.jpg';
+import nazifa from '../assets/pictures/imageNazifa.jpg';
 import photo from "../assets/loginImages/login-illustration.svg";
 import photoRes from "../assets/loginImages/Group 240.png";
 import { useNavigate } from "react-router-dom";
@@ -41,12 +44,17 @@ const Login = () => {
 
       
       let fullName = "Admin"; 
+      let profileImage = ""
+
       if (email === "garavaliyevrasul531@gmail.com") {
         fullName = "Rasul";
+        profileImage = rasul;
       } else if (email === "zibeydeceferli@gmail.com") {
         fullName = "Zibeydə";
+        profileImage = zibeyde;
       } else if (email === "nazifagojayeva@gmail.com") {
         fullName = "Nazifa";
+        profileImage = nazifa;
       }
 
       
@@ -56,6 +64,7 @@ const Login = () => {
 
       
       localStorage.setItem("fullName", fullName);
+      localStorage.setItem("profileImage", profileImage);
       localStorage.setItem("token", response.data.idToken);
 
     } catch (error) {
