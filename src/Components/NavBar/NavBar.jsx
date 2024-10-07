@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../Style/navbar.css";
 import imageAdmin from "../../NavbarImages/imageAdmin.png";
+import imageRasul from "../../assets/pictures/imageRasul.jpg"; // Rasul's profile image
+import imageZibeyde from "../../assets/pictures/imageZibeyde.jpg"; // Zibeyde's profile image
+import imageNazifa from "../../assets/pictures/imageNazifa.jpg"; // Nazifa's profile image
 import imageDashboard from "../../NavbarImages/imageDashboard.png";
 import imageProducts from "../../NavbarImages/imageProducts.png";
 import imageRestaurants from "../../NavbarImages/imageRestaurants.png";
@@ -20,6 +23,7 @@ function NavBar() {
   const [showSideBar, setShowSideBar] = useState(false);
   const [hamburgerMenuStyle, setHamburgerMenuStyle] = useState({});
   const [fullName, setFullName] = useState("Admin"); // Default olaraq "Admin" göstərilir
+  const [profileImage, setProfileImage] = useState(imageAdmin)
 
   // GET RESTAURANT TYPES FOR ADDPRODUCT SELECT OPTIONS
   const [resturantTypes, setResturantTypes] = useState([]);
@@ -43,9 +47,30 @@ function NavBar() {
   // localStorage-dan tam adı oxumaq üçün useEffect
   useEffect(() => {
     const storedFullName = localStorage.getItem("fullName");
+    const storedEmail = localStorage.getItem("email");
+    const storedProfileImage = localStorage.getItem("profileImage");
+    setProfileImage(storedProfileImage || imageAdmin);
+
     if (storedFullName) {
       setFullName(storedFullName);
     }
+
+    if (storedEmail) {
+      switch (storedEmail) {
+        case "garavaliyevrasul531@gmail.com":
+          setProfileImage(imageRasul);
+          break;
+        case "zibeydeceferli@gmail.com":
+          setProfileImage(imageZibeyde);
+          break;
+        case "nazifagojayeva@gmail.com":
+          setProfileImage(imageNazifa);
+          break;
+        default:
+          setProfileImage(imageAdmin);
+      }
+    }
+
   }, []);
 
   const objectWithSchema = {
@@ -128,7 +153,7 @@ function NavBar() {
             />
           </SideBar>
           <div className="imgAdmin">
-            <img src={imageAdmin} alt="Admin" />
+          <img src={profileImage} alt="Admin" />
             <span className="nameAdmin">{fullName}</span> {/* Tam adı göstəririk */}
           </div>
         </div>
